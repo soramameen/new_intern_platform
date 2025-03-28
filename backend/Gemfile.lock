@@ -74,6 +74,7 @@ GEM
       uri (>= 0.13.1)
     ast (2.4.3)
     base64 (0.2.0)
+    bcrypt (3.1.20)
     bcrypt_pbkdf (1.1.1)
     benchmark (0.4.0)
     bigdecimal (3.1.9)
@@ -108,6 +109,8 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.10.2)
+    jwt (2.10.1)
+      base64
     kamal (2.5.3)
       activesupport (>= 7.0)
       base64 (~> 0.2)
@@ -178,6 +181,8 @@ GEM
     raabro (1.4.0)
     racc (1.8.1)
     rack (3.1.12)
+    rack-cors (2.0.2)
+      rack (>= 2.0.0)
     rack-session (2.1.0)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
@@ -310,11 +315,14 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
+  bcrypt (~> 3.1)
   bootsnap
   brakeman
   debug
+  jwt (~> 2.10)
   kamal
   puma (>= 5.0)
+  rack-cors (~> 2.0)
   rails (~> 8.0.2)
   rubocop-rails-omakase
   solid_cable
