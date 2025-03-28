@@ -142,3 +142,36 @@ Processing by Api::V1::UsersController#index as */*
 Completed 200 OK in 9ms (Views: 0.9ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
 
 
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+Migrating to CreateInternProfiles (20250328054723)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE TABLE "intern_profiles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "name" varchar, "bio" text, "school" varchar, "major" varchar, "expected_graduation" varchar, "skills" text, "github_url" varchar, "portfolio_url" varchar, "location" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_ef67311338"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_intern_profiles_on_user_id" ON "intern_profiles" ("user_id") /*application='Backend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250328054723') RETURNING "version" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (6.7ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+Migrating to CreateCompanyProfiles (20250328054757)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "company_profiles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "company_name" varchar, "description" text, "industry" varchar, "location" varchar, "website" varchar, "company_size" varchar, "logo" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_bb2d63b59d"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='Backend'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_company_profiles_on_user_id" ON "company_profiles" ("user_id") /*application='Backend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250328054757') RETURNING "version" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (3.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'test@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('test@example.com', '$2a$12$BgQEkUU4n.F0rupFWgP/IOMLQosLVVvVwNWpIS/35l5NtJFJGXKGu', 'intern', 'テスト用', NULL, NULL, NULL, NULL, '2025-03-28 06:15:28.536854', '2025-03-28 06:15:28.536854') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mROLLBACK TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (3.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'test@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('test@example.com', '$2a$12$mldhJhYiA55u7HShAFwIqOzD5Jh5ngM2oEPl5AJKMGmJ/m6Ceydfe', 'intern', 'テスト用', NULL, NULL, NULL, NULL, '2025-03-28 06:20:31.585328', '2025-03-28 06:20:31.585328') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.2ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-03-28 06:20:31.627488', '2025-03-28 06:20:31.627488') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (6.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (8.6ms)[0m  [1m[33mUPDATE "intern_profiles" SET "school" = 'サンプル大学', "major" = '情報工学', "skills" = 'Ruby,Rails,JavaScript', "updated_at" = '2025-03-28 06:21:30.813554' WHERE "intern_profiles"."id" = 1 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
