@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_28_054757) do
+ActiveRecord::Schema[8.0].define(version: 2025_03_28_055415) do
   create_table "company_profiles", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "company_name"
@@ -23,6 +23,36 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_28_054757) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_company_profiles_on_user_id"
+  end
+
+  create_table "create_company_profiles", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "company_name"
+    t.text "description"
+    t.string "industry"
+    t.string "location"
+    t.string "website"
+    t.string "company_size"
+    t.string "logo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_create_company_profiles_on_user_id"
+  end
+
+  create_table "create_intern_profiles", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "name"
+    t.text "bio"
+    t.string "school"
+    t.string "major"
+    t.string "expected_graduation"
+    t.text "skills"
+    t.string "github_url"
+    t.string "portfolio_url"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_create_intern_profiles_on_user_id"
   end
 
   create_table "intern_profiles", force: :cascade do |t|
@@ -56,5 +86,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_28_054757) do
   end
 
   add_foreign_key "company_profiles", "users"
+  add_foreign_key "create_company_profiles", "users"
+  add_foreign_key "create_intern_profiles", "users"
   add_foreign_key "intern_profiles", "users"
 end

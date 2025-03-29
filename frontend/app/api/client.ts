@@ -76,3 +76,23 @@ export const checkLoginStatus = () => {
 export const getInterns = () => {
   return fetchApi("/users");
 };
+// インターン生プロフィール更新
+export const updateInternProfile = (profileData: any) => {
+  return fetchApi("/intern_profile", {
+    method: "PATCH",
+    body: JSON.stringify({ intern_profile: profileData }),
+  });
+};
+
+// 企業プロフィール更新
+export const updateCompanyProfile = (profileData: any) => {
+  return fetchApi("/company_profile", {
+    method: "PATCH",
+    body: JSON.stringify({ company_profile: profileData }),
+  });
+};
+
+// プロフィール取得
+export const getProfile = () => {
+  return fetchApi("/profile");
+};
