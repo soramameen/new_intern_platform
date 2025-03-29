@@ -1668,3 +1668,116 @@ Processing by Api::V1::ProfilesController#show as */*
 Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
 
 
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+Migrating to CreateOffers (20250329021338)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE TABLE "offers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "company_id" integer NOT NULL, "intern_id" integer NOT NULL, "message" text NOT NULL, "position" varchar, "details" text, "status" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Backend'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_offers_on_company_id" ON "offers" ("company_id") /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_offers_on_intern_id" ON "offers" ("intern_id") /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_offers_on_company_intern_status" ON "offers" ("company_id", "intern_id", "status") /*application='Backend'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Backend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Backend'*/[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aoffers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "company_id" integer NOT NULL, "intern_id" integer NOT NULL, "message" text NOT NULL, "position" varchar, "details" text, "status" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Backend'*/[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE INDEX "tindex_aoffers_on_company_intern_status" ON "aoffers" ("company_id", "intern_id", "status") /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aoffers_on_intern_id" ON "aoffers" ("intern_id") /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aoffers_on_company_id" ON "aoffers" ("company_id") /*application='Backend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "aoffers" ("id","company_id","intern_id","message","position","details","status","created_at","updated_at")
+                     SELECT "id","company_id","intern_id","message","position","details","status","created_at","updated_at" FROM "offers" /*application='Backend'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "offers" /*application='Backend'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "offers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "company_id" integer NOT NULL, "intern_id" integer NOT NULL, "message" text NOT NULL, "position" varchar, "details" text, "status" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_89ef98830c"
+FOREIGN KEY ("company_id")
+  REFERENCES "users" ("id")
+) /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_offers_on_company_id" ON "offers" ("company_id") /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_offers_on_intern_id" ON "offers" ("intern_id") /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_offers_on_company_intern_status" ON "offers" ("company_id", "intern_id", "status") /*application='Backend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "offers" ("id","company_id","intern_id","message","position","details","status","created_at","updated_at")
+                     SELECT "id","company_id","intern_id","message","position","details","status","created_at","updated_at" FROM "aoffers" /*application='Backend'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE "aoffers" /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Backend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Backend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aoffers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "company_id" integer NOT NULL, "intern_id" integer NOT NULL, "message" text NOT NULL, "position" varchar, "details" text, "status" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aoffers_on_company_intern_status" ON "aoffers" ("company_id", "intern_id", "status") /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aoffers_on_intern_id" ON "aoffers" ("intern_id") /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aoffers_on_company_id" ON "aoffers" ("company_id") /*application='Backend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "aoffers" ("id","company_id","intern_id","message","position","details","status","created_at","updated_at")
+                     SELECT "id","company_id","intern_id","message","position","details","status","created_at","updated_at" FROM "offers" /*application='Backend'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "offers" /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "offers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "company_id" integer NOT NULL, "intern_id" integer NOT NULL, "message" text NOT NULL, "position" varchar, "details" text, "status" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_89ef98830c"
+FOREIGN KEY ("company_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_8bbee6a0a6"
+FOREIGN KEY ("intern_id")
+  REFERENCES "users" ("id")
+) /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_offers_on_company_id" ON "offers" ("company_id") /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_offers_on_intern_id" ON "offers" ("intern_id") /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_offers_on_company_intern_status" ON "offers" ("company_id", "intern_id", "status") /*application='Backend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "offers" ("id","company_id","intern_id","message","position","details","status","created_at","updated_at")
+                     SELECT "id","company_id","intern_id","message","position","details","status","created_at","updated_at" FROM "aoffers" /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aoffers" /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Backend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250329021338') RETURNING "version" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (6.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+Migrating to DropDuplicateTables (20250329021512)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[35m (5.6ms)[0m  [1m[35mDROP TABLE "create_company_profiles" /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "create_intern_profiles" /*application='Backend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250329021512') RETURNING "version" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'company' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' LIMIT 1 /*application='Backend'*/[0m
+Started POST "/api/v1/users" for ::1 at 2025-03-29 11:26:20 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user" => {"email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "user_type" => "company", "name" => "テスト企業", "company_name" => "テスト株式会社", "company_description" => "テスト用の企業アカウントです"}}
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mUser Exists? (9.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'test_company@example.com' LIMIT 1 /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mROLLBACK TRANSACTION /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+Completed 422 Unprocessable Content in 234ms (Views: 0.4ms | ActiveRecord: 14.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/users" for ::1 at 2025-03-29 11:26:43 +0900
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user" => {"email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "user_type" => "company", "name" => "テスト企業", "company_name" => "テスト株式会社", "company_description" => "テスト用の企業アカウントです"}}
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mUser Exists? (4.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'test_company2@example.com' LIMIT 1 /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('test_company2@example.com', '$2a$12$/jvhZuEK/.SyHFboMV4NUuda2ioGdOyNa0mM8Su5QLCSvnfZsVtiS', 'company', 'テスト企業', 'テスト株式会社', 'テスト用の企業アカウントです', NULL, NULL, '2025-03-29 02:26:44.159282', '2025-03-29 02:26:44.159282') RETURNING "id" /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mCompanyProfile Create (0.2ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-03-29 02:26:44.240552', '2025-03-29 02:26:44.240552') RETURNING "id" /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (8.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+Completed 201 Created in 300ms (Views: 0.4ms | ActiveRecord: 16.2ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/users" for ::1 at 2025-03-29 11:27:02 +0900
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user" => {"email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "user_type" => "intern", "name" => "テスト太郎", "skills" => "JavaScript, React, Ruby", "bio" => "テスト用のインターン生アカウントです"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'test_intern2@example.com' LIMIT 1 /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('test_intern2@example.com', '$2a$12$YsMFHCUwpahmSsqGm5kE1O6kReerP5EG7/QoqiwDr19Nn.oRCYBtO', 'intern', 'テスト太郎', NULL, NULL, 'JavaScript, React, Ruby', 'テスト用のインターン生アカウントです', '2025-03-29 02:27:02.286258', '2025-03-29 02:27:02.286258') RETURNING "id" /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mInternProfile Create (0.7ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-03-29 02:27:02.332104', '2025-03-29 02:27:02.332104') RETURNING "id" /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+Completed 201 Created in 250ms (Views: 0.4ms | ActiveRecord: 2.2ms (3 queries, 0 cached) | GC: 0.0ms)
+
+

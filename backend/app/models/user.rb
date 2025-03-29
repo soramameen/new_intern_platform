@@ -1,9 +1,12 @@
 # app/models/user.rb
 class User < ApplicationRecord
   has_secure_password
+  # profile
   has_one :intern_profile, dependent: :destroy
   has_one :company_profile, dependent: :destroy
-
+  # offer
+  has_many :sent_offers, class_name: 'Offer', foreign_key: 'company_id', dependent: :destroy
+  has_many :received_offers, class_name: 'Offer', foreign_key: 'intern_id', dependent: :destroy
     after_create :create_profile
 
   
@@ -14,7 +17,7 @@ class User < ApplicationRecord
   # 企業の場合はcompany_nameが必須
   validates :company_name, presence: true, if: -> { user_type == 'company' }
 
-    def intern?
+  def intern?
     user_type == 'intern'
   end
   
@@ -23,6 +26,12 @@ class User < ApplicationRecord
   end
   def profile
     user_type == 'intern' ? intern_profile : company_profile
+  end
+  def offering_companies
+    User.joins(:sent_offers).where(offers: { intern_id: id }).distinct
+  end
+  def offered_interns
+    User.joins(:received_offers).where(offers: { company_id: id }).distinct
   end
 
    private
