@@ -175,3 +175,1496 @@ FOREIGN KEY ("user_id")
   [1m[36mTRANSACTION (3.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
   [1m[36mInternProfile Update (8.6ms)[0m  [1m[33mUPDATE "intern_profiles" SET "school" = 'サンプル大学', "major" = '情報工学', "skills" = 'Ruby,Rails,JavaScript', "updated_at" = '2025-03-28 06:21:30.813554' WHERE "intern_profiles"."id" = 1 /*application='Backend'*/[0m
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 15:46:25 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 2 pending migrations:
+
+db/migrate/20250328055349_create_create_company_profiles.rb
+db/migrate/20250328055415_create_create_intern_profiles.rb
+
+
+):
+  
+activerecord (8.0.2) lib/active_record/migration.rb:743:in 'ActiveRecord::Migration.check_pending_migrations'
+activerecord (8.0.2) lib/active_record/migration.rb:660:in 'block (2 levels) in ActiveRecord::Migration::CheckPending#call'
+activesupport (8.0.2) lib/active_support/file_update_checker.rb:85:in 'ActiveSupport::FileUpdateChecker#execute'
+activerecord (8.0.2) lib/active_record/migration.rb:665:in 'block in ActiveRecord::Migration::CheckPending#call'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in 'Thread::Mutex#synchronize'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.12) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.12) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.0.2) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+Started POST "/api/v1/login" for ::1 at 2025-03-28 15:46:48 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 2 pending migrations:
+
+db/migrate/20250328055349_create_create_company_profiles.rb
+db/migrate/20250328055415_create_create_intern_profiles.rb
+
+
+):
+  
+activerecord (8.0.2) lib/active_record/migration.rb:743:in 'ActiveRecord::Migration.check_pending_migrations'
+activerecord (8.0.2) lib/active_record/migration.rb:660:in 'block (2 levels) in ActiveRecord::Migration::CheckPending#call'
+activesupport (8.0.2) lib/active_support/file_update_checker.rb:85:in 'ActiveSupport::FileUpdateChecker#execute'
+activerecord (8.0.2) lib/active_record/migration.rb:665:in 'block in ActiveRecord::Migration::CheckPending#call'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in 'Thread::Mutex#synchronize'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.12) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.12) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.0.2) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+Started POST "/api/v1/login" for ::1 at 2025-03-28 15:47:33 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 2 pending migrations:
+
+db/migrate/20250328055349_create_create_company_profiles.rb
+db/migrate/20250328055415_create_create_intern_profiles.rb
+
+
+):
+  
+activerecord (8.0.2) lib/active_record/migration.rb:743:in 'ActiveRecord::Migration.check_pending_migrations'
+activerecord (8.0.2) lib/active_record/migration.rb:660:in 'block (2 levels) in ActiveRecord::Migration::CheckPending#call'
+activesupport (8.0.2) lib/active_support/file_update_checker.rb:85:in 'ActiveSupport::FileUpdateChecker#execute'
+activerecord (8.0.2) lib/active_record/migration.rb:665:in 'block in ActiveRecord::Migration::CheckPending#call'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in 'Thread::Mutex#synchronize'
+activerecord (8.0.2) lib/active_record/migration.rb:657:in 'ActiveRecord::Migration::CheckPending#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:31:in 'block in ActionDispatch::Callbacks#call'
+activesupport (8.0.2) lib/active_support/callbacks.rb:100:in 'ActiveSupport::Callbacks#run_callbacks'
+actionpack (8.0.2) lib/action_dispatch/middleware/callbacks.rb:30:in 'ActionDispatch::Callbacks#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in 'ActionDispatch::ActionableExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:31:in 'ActionDispatch::DebugExceptions#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/show_exceptions.rb:32:in 'ActionDispatch::ShowExceptions#call'
+railties (8.0.2) lib/rails/rack/logger.rb:41:in 'Rails::Rack::Logger#call_app'
+railties (8.0.2) lib/rails/rack/logger.rb:29:in 'Rails::Rack::Logger#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/remote_ip.rb:96:in 'ActionDispatch::RemoteIp#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/request_id.rb:34:in 'ActionDispatch::RequestId#call'
+rack (3.1.12) lib/rack/runtime.rb:24:in 'Rack::Runtime#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:61:in 'block in ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:26:in 'ActionDispatch::ServerTiming::Subscriber#collect_events'
+actionpack (8.0.2) lib/action_dispatch/middleware/server_timing.rb:60:in 'ActionDispatch::ServerTiming#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/executor.rb:16:in 'ActionDispatch::Executor#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/static.rb:27:in 'ActionDispatch::Static#call'
+rack (3.1.12) lib/rack/sendfile.rb:114:in 'Rack::Sendfile#call'
+actionpack (8.0.2) lib/action_dispatch/middleware/host_authorization.rb:143:in 'ActionDispatch::HostAuthorization#call'
+railties (8.0.2) lib/rails/engine.rb:535:in 'Rails::Engine#call'
+puma (6.6.0) lib/puma/configuration.rb:279:in 'Puma::Configuration::ConfigMiddleware#call'
+puma (6.6.0) lib/puma/request.rb:99:in 'block in Puma::Request#handle_request'
+puma (6.6.0) lib/puma/thread_pool.rb:390:in 'Puma::ThreadPool#with_force_shutdown'
+puma (6.6.0) lib/puma/request.rb:98:in 'Puma::Request#handle_request'
+puma (6.6.0) lib/puma/server.rb:472:in 'Puma::Server#process_client'
+puma (6.6.0) lib/puma/server.rb:254:in 'block in Puma::Server#run'
+puma (6.6.0) lib/puma/thread_pool.rb:167:in 'block in Puma::ThreadPool#spawn_thread'
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+Migrating to CreateCreateCompanyProfiles (20250328055349)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE TABLE "create_company_profiles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "company_name" varchar, "description" text, "industry" varchar, "location" varchar, "website" varchar, "company_size" varchar, "logo" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_b6a5f4ce86"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_create_company_profiles_on_user_id" ON "create_company_profiles" ("user_id") /*application='Backend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250328055349') RETURNING "version" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (6.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+Migrating to CreateCreateInternProfiles (20250328055415)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "create_intern_profiles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "name" varchar, "bio" text, "school" varchar, "major" varchar, "expected_graduation" varchar, "skills" text, "github_url" varchar, "portfolio_url" varchar, "location" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_5467989b75"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='Backend'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_create_intern_profiles_on_user_id" ON "create_intern_profiles" ("user_id") /*application='Backend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20250328055415') RETURNING "version" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+Started POST "/api/v1/login" for ::1 at 2025-03-28 15:48:41 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'okayama@example.com' LIMIT 1 /*action='create',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:5:in 'Api::V1::SessionsController#create'
+Completed 200 OK in 241ms (Views: 0.4ms | ActiveRecord: 2.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started OPTIONS "/api/v1/users" for ::1 at 2025-03-28 15:48:42 +0900
+Started OPTIONS "/api/v1/users" for ::1 at 2025-03-28 15:48:42 +0900
+Started GET "/api/v1/users" for ::1 at 2025-03-28 15:48:42 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 22ms (Views: 0.5ms | ActiveRecord: 4.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-28 15:48:42 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 11ms (Views: 1.6ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started OPTIONS "/api/v1/profile" for ::1 at 2025-03-28 15:48:53 +0900
+Started OPTIONS "/api/v1/profile" for ::1 at 2025-03-28 15:48:53 +0900
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 15:48:53 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/profile"):
+  
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 15:48:53 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/profile"):
+  
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 15:48:53 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/profile"):
+  
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 15:57:58 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 69ms (Views: 0.4ms | ActiveRecord: 3.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 15:57:58 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 37ms (Views: 0.1ms | ActiveRecord: 3.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 15:57:58 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.7ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 1.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-28 15:58:00 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 46ms (Views: 1.3ms | ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-28 15:58:00 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 8ms (Views: 0.7ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/users" for ::1 at 2025-03-28 15:59:00 +0900
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user" => {"email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "name" => "ゆーいち", "user_type" => "intern", "skills" => "走り", "bio" => "走ります"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'ichi@example.com' LIMIT 1 /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('ichi@example.com', '$2a$12$IEgP0JCWnVnYliAVaVvS4.cdB8L1OhXtspC0/qV/Ff9LcYRBnr92.', 'intern', 'ゆーいち', NULL, NULL, '走り', '走ります', '2025-03-28 06:59:00.612723', '2025-03-28 06:59:00.612723') RETURNING "id" /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mInternProfile Create (1.5ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-03-28 06:59:00.685796', '2025-03-28 06:59:00.685796') RETURNING "id" /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/models/user.rb:31:in 'User#create_profile'
+  [1m[36mTRANSACTION (6.5ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+Completed 201 Created in 289ms (Views: 0.3ms | ActiveRecord: 11.2ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:02:14 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 16:02:32 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mInternProfile Load (0.2ms)[0m  [1m[34mSELECT "intern_profiles".* FROM "intern_profiles" WHERE "intern_profiles"."user_id" = 8 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 22ms (Views: 0.5ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 16:02:32 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mInternProfile Load (0.1ms)[0m  [1m[34mSELECT "intern_profiles".* FROM "intern_profiles" WHERE "intern_profiles"."user_id" = 8 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 16:04:42 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mInternProfile Load (0.2ms)[0m  [1m[34mSELECT "intern_profiles".* FROM "intern_profiles" WHERE "intern_profiles"."user_id" = 8 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 16:04:42 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mInternProfile Load (0.1ms)[0m  [1m[34mSELECT "intern_profiles".* FROM "intern_profiles" WHERE "intern_profiles"."user_id" = 8 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started OPTIONS "/api/v1/intern_profile" for ::1 at 2025-03-28 16:05:47 +0900
+Started PATCH "/api/v1/intern_profile" for ::1 at 2025-03-28 16:05:47 +0900
+Processing by Api::V1::InternProfilesController#update as */*
+  Parameters: {"intern_profile" => {"id" => 2, "user_id" => 8, "name" => "中村悠一", "bio" => "がんばります", "school" => "長崎小学校", "major" => "コンピュータ", "expected_graduation" => "2026年3月", "skills" => "Python", "github_url" => nil, "portfolio_url" => nil, "location" => "長崎", "user" => {"name" => "ゆーいち", "email" => "[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*action='update',application='Backend',controller='intern_profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mInternProfile Load (0.1ms)[0m  [1m[34mSELECT "intern_profiles".* FROM "intern_profiles" WHERE "intern_profiles"."user_id" = 8 LIMIT 1 /*action='update',application='Backend',controller='intern_profiles'*/[0m
+  ↳ app/controllers/api/v1/intern_profiles_controller.rb:24:in 'Api::V1::InternProfilesController#set_profile'
+[31mUnpermitted parameters: :id, :user_id, :user. Context: { controller: Api::V1::InternProfilesController, action: update, request: #<ActionDispatch::Request:0x00007feda946ce60>, params: {"intern_profile" => {"id" => 2, "user_id" => 8, "name" => "中村悠一", "bio" => "がんばります", "school" => "長崎小学校", "major" => "コンピュータ", "expected_graduation" => "2026年3月", "skills" => "Python", "github_url" => nil, "portfolio_url" => nil, "location" => "長崎", "user" => {"name" => "ゆーいち", "email" => "[FILTERED]"}}, "controller" => "api/v1/intern_profiles", "action" => "update"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='Backend',controller='intern_profiles'*/[0m
+  ↳ app/controllers/api/v1/intern_profiles_controller.rb:14:in 'Api::V1::InternProfilesController#update'
+  [1m[36mInternProfile Update (1.2ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = '中村悠一', "bio" = 'がんばります', "school" = '長崎小学校', "major" = 'コンピュータ', "expected_graduation" = '2026年3月', "skills" = 'Python', "location" = '長崎', "updated_at" = '2025-03-28 07:05:47.925319' WHERE "intern_profiles"."id" = 2 /*action='update',application='Backend',controller='intern_profiles'*/[0m
+  ↳ app/controllers/api/v1/intern_profiles_controller.rb:14:in 'Api::V1::InternProfilesController#update'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='Backend',controller='intern_profiles'*/[0m
+  ↳ app/controllers/api/v1/intern_profiles_controller.rb:14:in 'Api::V1::InternProfilesController#update'
+Completed 200 OK in 30ms (Views: 6.0ms | ActiveRecord: 2.1ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-03-28 16:06:14 +0900
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'okayama@example.com' LIMIT 1 /*action='create',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:5:in 'Api::V1::SessionsController#create'
+Completed 200 OK in 178ms (Views: 0.3ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-28 16:06:15 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-28 16:06:15 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 7ms (Views: 2.6ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:08:27 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:08:29 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:08:36 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:08:47 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-28 16:08:47 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-28 16:08:47 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:09:26 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:09:33 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:09:38 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 7.1ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:09:58 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 2.4ms (1 query, 0 cached) | GC: 7.9ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 16:09:58 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 2.4ms (2 queries, 0 cached) | GC: 8.4ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 16:09:58 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 6.6ms)
+
+
+Started OPTIONS "/api/v1/logged_in" for ::1 at 2025-03-28 16:10:02 +0900
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:10:02 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 16:10:02 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 1.6ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 16:10:02 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.2ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 17ms (Views: 8.1ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:12:31 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 5ms (Views: 1.8ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-28 16:12:31 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 8ms (Views: 1.7ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-28 16:12:31 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:13:58 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 1.9ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:14:17 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:14:20 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 1.1ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:14:30 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-28 16:14:30 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-28 16:14:30 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 1.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:16:36 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:16:56 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 16:16:56 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.2ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 16:16:56 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.2ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:22:11 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 6.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 16:22:11 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 1.7ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 16:22:11 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:22:13 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 16:22:13 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 16:22:13 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 3ms (Views: 0.0ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:22:20 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 16:22:20 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.2ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 16:22:20 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:22:21 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 16:22:21 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 16:22:21 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.2ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:26:19 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started OPTIONS "/api/v1/login" for ::1 at 2025-03-28 16:26:32 +0900
+Started POST "/api/v1/login" for ::1 at 2025-03-28 16:26:32 +0900
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'okayama@example.com' LIMIT 1 /*action='create',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:5:in 'Api::V1::SessionsController#create'
+Completed 200 OK in 177ms (Views: 0.6ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-28 16:26:33 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-28 16:26:33 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-28 16:27:05 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 16:27:05 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-28 16:27:05 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.2ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 1.8ms)
+
+
+Started OPTIONS "/api/v1/logged_in" for ::1 at 2025-03-29 08:48:33 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-29 08:48:33 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 79ms (Views: 0.4ms | ActiveRecord: 4.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started OPTIONS "/api/v1/login" for ::1 at 2025-03-29 08:49:20 +0900
+Started POST "/api/v1/login" for ::1 at 2025-03-29 08:49:20 +0900
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'okayama@example.com' LIMIT 1 /*action='create',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:5:in 'Api::V1::SessionsController#create'
+Completed 200 OK in 171ms (Views: 0.2ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started OPTIONS "/api/v1/users" for ::1 at 2025-03-29 08:49:21 +0900
+Started OPTIONS "/api/v1/users" for ::1 at 2025-03-29 08:49:21 +0900
+Started GET "/api/v1/users" for ::1 at 2025-03-29 08:49:21 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 17ms (Views: 1.1ms | ActiveRecord: 5.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-29 08:49:21 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 11ms (Views: 0.9ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-29 08:49:52 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started OPTIONS "/api/v1/profile" for ::1 at 2025-03-29 08:49:52 +0900
+Started OPTIONS "/api/v1/profile" for ::1 at 2025-03-29 08:49:52 +0900
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 08:49:52 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 47ms (Views: 0.1ms | ActiveRecord: 1.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 08:49:52 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 6 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-29 08:54:04 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-29 08:54:04 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-29 08:54:04 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 20ms (Views: 0.2ms | ActiveRecord: 1.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/users" for ::1 at 2025-03-29 08:54:46 +0900
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user" => {"email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "name" => "kagawa", "user_type" => "company", "company_name" => "kagawa", "company_description" => "うどんつくってます"}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mUser Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'kagawa@example.com' LIMIT 1 /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('kagawa@example.com', '$2a$12$2ZasidbpLrQmROml.w7.ROVStiXnPmDACdATauxOaXa2D7yW4AC1S', 'company', 'kagawa', 'kagawa', 'うどんつくってます', NULL, NULL, '2025-03-28 23:54:46.625419', '2025-03-28 23:54:46.625419') RETURNING "id" /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mCompanyProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-03-28 23:54:46.658011', '2025-03-28 23:54:46.658011') RETURNING "id" /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/models/user.rb:33:in 'User#create_profile'
+  [1m[36mTRANSACTION (5.6ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+Completed 201 Created in 225ms (Views: 0.1ms | ActiveRecord: 8.8ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-29 08:54:46 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-29 08:54:46 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-29 08:55:05 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 08:55:05 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 15ms (Views: 1.7ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 08:55:05 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 08:55:18 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 08:55:18 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started OPTIONS "/api/v1/company_profile" for ::1 at 2025-03-29 08:56:46 +0900
+Started PATCH "/api/v1/company_profile" for ::1 at 2025-03-29 08:56:46 +0900
+Processing by Api::V1::CompanyProfilesController#update as */*
+  Parameters: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:25:in 'Api::V1::CompanyProfilesController#set_profile'
+[31mUnpermitted parameters: :id, :user_id, :user. Context: { controller: Api::V1::CompanyProfilesController, action: update, request: #<ActionDispatch::Request:0x00007f56872099c0>, params: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}, "controller" => "api/v1/company_profiles", "action" => "update"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:15:in 'Api::V1::CompanyProfilesController#update'
+  [1m[36mCompanyProfile Update (1.0ms)[0m  [1m[33mUPDATE "company_profiles" SET "company_name" = 'kagawa', "description" = 'うどん好きな人歓迎
+ラーメン好きは必要ないです', "industry" = '飲食', "location" = '香川県', "website" = 'http:/kagawa.com', "company_size" = '1000人', "updated_at" = '2025-03-28 23:56:46.887881' WHERE "company_profiles"."id" = 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:15:in 'Api::V1::CompanyProfilesController#update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:15:in 'Api::V1::CompanyProfilesController#update'
+Completed 200 OK in 25ms (Views: 5.9ms | ActiveRecord: 1.4ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-29 08:56:47 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-29 08:56:47 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-29 08:57:13 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 4.9ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 08:57:13 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 17ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 11.9ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 08:57:13 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 17ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 13.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-29 08:57:22 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-29 09:00:28 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-29 09:02:31 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-29 09:02:56 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 2.9ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 09:03:01 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 09:03:01 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 14ms (Views: 7.0ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/api/v1/company_profile" for ::1 at 2025-03-29 09:03:15 +0900
+Processing by Api::V1::CompanyProfilesController#update as */*
+  Parameters: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです\n更新", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:25:in 'Api::V1::CompanyProfilesController#set_profile'
+[31mUnpermitted parameters: :id, :user_id, :user. Context: { controller: Api::V1::CompanyProfilesController, action: update, request: #<ActionDispatch::Request:0x00007f568754bb88>, params: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです\n更新", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}, "controller" => "api/v1/company_profiles", "action" => "update"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:15:in 'Api::V1::CompanyProfilesController#update'
+  [1m[36mCompanyProfile Update (1.1ms)[0m  [1m[33mUPDATE "company_profiles" SET "description" = 'うどん好きな人歓迎
+ラーメン好きは必要ないです
+更新', "updated_at" = '2025-03-29 00:03:15.983458' WHERE "company_profiles"."id" = 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:15:in 'Api::V1::CompanyProfilesController#update'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:15:in 'Api::V1::CompanyProfilesController#update'
+Completed 200 OK in 14ms (Views: 1.6ms | ActiveRecord: 2.2ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-29 09:03:25 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 8ms (Views: 1.5ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-29 09:03:25 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 09:03:38 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.2ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 09:03:38 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-29 09:03:44 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 09:03:44 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 09:03:44 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-29 09:04:03 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 09:04:09 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.2ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.7ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 09:04:09 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/api/v1/company_profile" for ::1 at 2025-03-29 09:04:13 +0900
+Processing by Api::V1::CompanyProfilesController#update as */*
+  Parameters: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです\n更新２", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:25:in 'Api::V1::CompanyProfilesController#set_profile'
+[31mUnpermitted parameters: :id, :user_id, :user. Context: { controller: Api::V1::CompanyProfilesController, action: update, request: #<ActionDispatch::Request:0x00007f569daa3c00>, params: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです\n更新２", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}, "controller" => "api/v1/company_profiles", "action" => "update"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:15:in 'Api::V1::CompanyProfilesController#update'
+  [1m[36mCompanyProfile Update (1.1ms)[0m  [1m[33mUPDATE "company_profiles" SET "description" = 'うどん好きな人歓迎
+ラーメン好きは必要ないです
+更新２', "updated_at" = '2025-03-29 00:04:13.756036' WHERE "company_profiles"."id" = 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:15:in 'Api::V1::CompanyProfilesController#update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:15:in 'Api::V1::CompanyProfilesController#update'
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 1.4ms (3 queries, 0 cached) | GC: 0.5ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-29 09:04:39 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 09:04:39 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 09:04:39 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/api/v1/company_profile" for ::1 at 2025-03-29 09:06:06 +0900
+Processing by Api::V1::CompanyProfilesController#update as */*
+  Parameters: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです\n更新３", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:25:in 'Api::V1::CompanyProfilesController#set_profile'
+[31mUnpermitted parameters: :id, :user_id, :user. Context: { controller: Api::V1::CompanyProfilesController, action: update, request: #<ActionDispatch::Request:0x00007f569d2253d0>, params: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです\n更新３", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}, "controller" => "api/v1/company_profiles", "action" => "update"} }[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:15:in 'Api::V1::CompanyProfilesController#update'
+  [1m[36mCompanyProfile Update (1.7ms)[0m  [1m[33mUPDATE "company_profiles" SET "description" = 'うどん好きな人歓迎
+ラーメン好きは必要ないです
+更新３', "updated_at" = '2025-03-29 00:06:06.385086' WHERE "company_profiles"."id" = 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:15:in 'Api::V1::CompanyProfilesController#update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:15:in 'Api::V1::CompanyProfilesController#update'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 1.9ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/api/v1/company_profile" for ::1 at 2025-03-29 09:06:20 +0900
+Processing by Api::V1::CompanyProfilesController#update as */*
+  Parameters: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです\n更新３", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.0ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:25:in 'Api::V1::CompanyProfilesController#set_profile'
+[31mUnpermitted parameters: :id, :user_id, :user. Context: { controller: Api::V1::CompanyProfilesController, action: update, request: #<ActionDispatch::Request:0x00007f56870fd7c0>, params: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです\n更新３", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}, "controller" => "api/v1/company_profiles", "action" => "update"} }[0m
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/api/v1/company_profile" for ::1 at 2025-03-29 09:06:24 +0900
+Processing by Api::V1::CompanyProfilesController#update as */*
+  Parameters: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです\n更新３", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:25:in 'Api::V1::CompanyProfilesController#set_profile'
+[31mUnpermitted parameters: :id, :user_id, :user. Context: { controller: Api::V1::CompanyProfilesController, action: update, request: #<ActionDispatch::Request:0x00007f56871235d8>, params: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです\n更新３", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}, "controller" => "api/v1/company_profiles", "action" => "update"} }[0m
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/api/v1/company_profile" for ::1 at 2025-03-29 09:06:24 +0900
+Processing by Api::V1::CompanyProfilesController#update as */*
+  Parameters: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです\n更新３", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:25:in 'Api::V1::CompanyProfilesController#set_profile'
+[31mUnpermitted parameters: :id, :user_id, :user. Context: { controller: Api::V1::CompanyProfilesController, action: update, request: #<ActionDispatch::Request:0x00007f56872da340>, params: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです\n更新３", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}, "controller" => "api/v1/company_profiles", "action" => "update"} }[0m
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/api/v1/company_profile" for ::1 at 2025-03-29 09:06:25 +0900
+Processing by Api::V1::CompanyProfilesController#update as */*
+  Parameters: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです\n更新３", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:25:in 'Api::V1::CompanyProfilesController#set_profile'
+[31mUnpermitted parameters: :id, :user_id, :user. Context: { controller: Api::V1::CompanyProfilesController, action: update, request: #<ActionDispatch::Request:0x00007f5687301198>, params: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです\n更新３", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}, "controller" => "api/v1/company_profiles", "action" => "update"} }[0m
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/api/v1/company_profile" for ::1 at 2025-03-29 09:06:32 +0900
+Processing by Api::V1::CompanyProfilesController#update as */*
+  Parameters: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです\n更新３", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:25:in 'Api::V1::CompanyProfilesController#set_profile'
+[31mUnpermitted parameters: :id, :user_id, :user. Context: { controller: Api::V1::CompanyProfilesController, action: update, request: #<ActionDispatch::Request:0x00007f56874a7c68>, params: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです\n更新３", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}, "controller" => "api/v1/company_profiles", "action" => "update"} }[0m
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-29 09:08:09 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 09:08:09 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 09:08:09 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 09:11:19 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 09:11:19 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 1.0ms)
+
+
+Started PATCH "/api/v1/company_profile" for ::1 at 2025-03-29 09:11:26 +0900
+Processing by Api::V1::CompanyProfilesController#update as */*
+  Parameters: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです\n更新４", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:25:in 'Api::V1::CompanyProfilesController#set_profile'
+[31mUnpermitted parameters: :id, :user_id, :user. Context: { controller: Api::V1::CompanyProfilesController, action: update, request: #<ActionDispatch::Request:0x00007f5687abcd10>, params: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです\n更新４", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}, "controller" => "api/v1/company_profiles", "action" => "update"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:15:in 'Api::V1::CompanyProfilesController#update'
+  [1m[36mCompanyProfile Update (2.4ms)[0m  [1m[33mUPDATE "company_profiles" SET "description" = 'うどん好きな人歓迎
+ラーメン好きは必要ないです
+更新４', "updated_at" = '2025-03-29 00:11:27.004870' WHERE "company_profiles"."id" = 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:15:in 'Api::V1::CompanyProfilesController#update'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:15:in 'Api::V1::CompanyProfilesController#update'
+Completed 200 OK in 10ms (Views: 0.7ms | ActiveRecord: 3.5ms (3 queries, 0 cached) | GC: 1.2ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-29 09:11:27 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-03-29 09:11:27 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 09:15:49 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 09:15:49 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/api/v1/company_profile" for ::1 at 2025-03-29 09:15:58 +0900
+Processing by Api::V1::CompanyProfilesController#update as */*
+  Parameters: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです\n更新５", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:25:in 'Api::V1::CompanyProfilesController#set_profile'
+[31mUnpermitted parameters: :id, :user_id, :user. Context: { controller: Api::V1::CompanyProfilesController, action: update, request: #<ActionDispatch::Request:0x00007f568736b228>, params: {"company_profile" => {"id" => 1, "user_id" => 9, "company_name" => "kagawa", "description" => "うどん好きな人歓迎\nラーメン好きは必要ないです\n更新５", "industry" => "飲食", "location" => "香川県", "website" => "http:/kagawa.com", "company_size" => "1000人", "logo" => nil, "user" => {"name" => "kagawa", "email" => "[FILTERED]"}}, "controller" => "api/v1/company_profiles", "action" => "update"} }[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:15:in 'Api::V1::CompanyProfilesController#update'
+  [1m[36mCompanyProfile Update (1.5ms)[0m  [1m[33mUPDATE "company_profiles" SET "description" = 'うどん好きな人歓迎
+ラーメン好きは必要ないです
+更新５', "updated_at" = '2025-03-29 00:15:58.027027' WHERE "company_profiles"."id" = 1 /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:15:in 'Api::V1::CompanyProfilesController#update'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='Backend',controller='company_profiles'*/[0m
+  ↳ app/controllers/api/v1/company_profiles_controller.rb:15:in 'Api::V1::CompanyProfilesController#update'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 3.0ms (3 queries, 0 cached) | GC: 1.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-03-29 09:15:58 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 09:15:58 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-03-29 09:15:58 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 9 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:25:in 'User#profile'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
