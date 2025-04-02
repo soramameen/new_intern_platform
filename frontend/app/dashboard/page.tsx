@@ -4,7 +4,7 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "@/app/auth/AuthProvider";
 import ProtectedRoute from "@/app/components/ProtectedRoute";
-import { getInterns } from "@/app/api/client";
+import { getInterns, getCompanies } from "@/app/api/client";
 import Link from "next/link";
 import OfferForm from "../components/OfferForm";
 
@@ -15,6 +15,18 @@ type Intern = {
   email: string;
   skills: string;
   bio: string;
+};
+
+// 企業の型定義
+type Company = {
+  id: number;
+  name: string;
+  email: string;
+  company_name: string;
+  industry: string;
+  location: string;
+  company_size: string;
+  description: string;
 };
 
 export default function Dashboard() {
@@ -28,37 +40,89 @@ export default function Dashboard() {
 function DashboardContent() {
   const { user, isCompany } = useAuth();
   const [interns, setInterns] = useState<Intern[]>([]);
+  const [companies, setCompanies] = useState<Company[]>([]);
+  const [filteredInterns, setFilteredInterns] = useState<Intern[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [skillFilter, setSkillFilter] = useState("");
+  const [availableSkills, setAvailableSkills] = useState<string[]>([]);
 
   // モーダル追加用
   const [showOfferModal, setShowOfferModal] = useState(false);
   const [selectedIntern, setSelectedIntern] = useState<Intern | null>(null);
   const [offerSuccess, setOfferSuccess] = useState(false);
 
-  // 企業ユーザーの場合、インターン生の一覧を取得
+  // データ取得
   useEffect(() => {
-    const fetchInterns = async () => {
-      if (isCompany) {
-        setLoading(true);
-        try {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        if (isCompany) {
+          // 企業ユーザーの場合、インターン生一覧を取得
           const data = await getInterns();
-          // インターン生のみをフィルタリング
           const internUsers = data.filter(
             (user: any) => user.user_type === "intern"
           );
           setInterns(internUsers);
-        } catch (err) {
-          console.error("Failed to fetch interns:", err);
-          setError("インターン生の情報の取得に失敗しました。");
-        } finally {
-          setLoading(false);
+          setFilteredInterns(internUsers);
+
+          // 利用可能なスキルの抽出
+          const skills = new Set<string>();
+          internUsers.forEach((intern: Intern) => {
+            if (intern.skills) {
+              intern.skills.split(",").forEach((skill) => {
+                skills.add(skill.trim());
+              });
+            }
+          });
+          setAvailableSkills(Array.from(skills).sort());
+        } else {
+          // インターン生ユーザーの場合、企業一覧を取得
+          const data = await getCompanies();
+          setCompanies(data);
         }
+      } catch (err) {
+        console.error("Failed to fetch data:", err);
+        setError(
+          isCompany
+            ? "インターン生の情報の取得に失敗しました。"
+            : "企業情報の取得に失敗しました。"
+        );
+      } finally {
+        setLoading(false);
       }
     };
 
-    fetchInterns();
+    fetchData();
   }, [isCompany]);
+
+  // スキルフィルタリングの処理
+  const handleSkillFilterChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const skill = e.target.value;
+    setSkillFilter(skill);
+
+    if (skill === "") {
+      // フィルターがクリアされた場合、全てのインターン生を表示
+      setFilteredInterns(interns);
+    } else {
+      // 選択されたスキルを持つインターン生のみをフィルタリング
+      const filtered = interns.filter(
+        (intern) =>
+          intern.skills &&
+          intern.skills
+            .split(",")
+            .map((s) => s.trim())
+            .includes(skill)
+      );
+      setFilteredInterns(filtered);
+    }
+  };
+
+  // スキルフィルターをリセット
+  const resetFilter = () => {
+    setSkillFilter("");
+    setFilteredInterns(interns);
+  };
 
   // モーダルの表示関数
   const openOfferModal = (intern: Intern) => {
@@ -83,23 +147,55 @@ function DashboardContent() {
       {/* 企業向けダッシュボード */}
       {isCompany && (
         <div>
-          <h2 className="text-lg font-medium text-gray-900 mb-4">
-            インターン生一覧
-          </h2>
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+            <h2 className="text-lg font-medium text-gray-900">
+              インターン生一覧
+            </h2>
+
+            {/* スキルフィルター */}
+            <div className="mt-2 md:mt-0 flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-2">
+              <label htmlFor="skill-filter" className="text-sm text-gray-700">
+                スキルで絞り込み:
+              </label>
+              <select
+                id="skill-filter"
+                value={skillFilter}
+                onChange={handleSkillFilterChange}
+                className="block w-full md:w-auto pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
+              >
+                <option value="">すべて表示</option>
+                {availableSkills.map((skill) => (
+                  <option key={skill} value={skill}>
+                    {skill}
+                  </option>
+                ))}
+              </select>
+              {skillFilter && (
+                <button
+                  onClick={resetFilter}
+                  className="flex items-center px-2 py-1 text-xs text-gray-500 bg-gray-200 rounded hover:bg-gray-300"
+                >
+                  リセット
+                </button>
+              )}
+            </div>
+          </div>
 
           {loading && <p className="text-gray-500">読み込み中...</p>}
 
           {error && <p className="text-red-500">{error}</p>}
 
-          {!loading && !error && interns.length === 0 && (
+          {!loading && !error && filteredInterns.length === 0 && (
             <p className="text-gray-500">
-              登録されているインターン生はまだいません。
+              {skillFilter
+                ? `「${skillFilter}」のスキルを持つインターン生は見つかりませんでした。`
+                : "登録されているインターン生はまだいません。"}
             </p>
           )}
 
-          {!loading && !error && interns.length > 0 && (
+          {!loading && !error && filteredInterns.length > 0 && (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {interns.map((intern) => (
+              {filteredInterns.map((intern) => (
                 <div
                   key={intern.id}
                   className="border rounded-lg p-4 hover:shadow-md transition-shadow"
@@ -110,7 +206,20 @@ function DashboardContent() {
                     <h4 className="text-sm font-medium text-gray-700">
                       スキル:
                     </h4>
-                    <p className="text-sm text-gray-600">{intern.skills}</p>
+                    <p className="text-sm text-gray-600">
+                      {intern.skills?.split(",").map((skill, idx) => (
+                        <span
+                          key={idx}
+                          className={`inline-block mr-2 mb-1 px-2 py-1 rounded-full text-xs ${
+                            skill.trim() === skillFilter
+                              ? "bg-indigo-100 text-indigo-800 font-medium"
+                              : "bg-gray-100 text-gray-800"
+                          }`}
+                        >
+                          {skill.trim()}
+                        </span>
+                      ))}
+                    </p>
                   </div>
                   <div className="mt-2">
                     <h4 className="text-sm font-medium text-gray-700">
@@ -209,11 +318,53 @@ function DashboardContent() {
               </div>
             </div>
 
+            {/* 企業一覧セクション */}
             <div className="border rounded-lg p-6">
-              <h3 className="text-xl font-medium mb-4">おすすめの企業</h3>
-              <p className="text-gray-500">
-                現在、おすすめの企業はありません。
-              </p>
+              <h3 className="text-xl font-medium mb-4">企業一覧</h3>
+
+              {loading && <p className="text-gray-500">読み込み中...</p>}
+
+              {error && <p className="text-red-500">{error}</p>}
+
+              {!loading && !error && companies.length === 0 && (
+                <p className="text-gray-500">
+                  登録されている企業はまだありません。
+                </p>
+              )}
+
+              {!loading && !error && companies.length > 0 && (
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {companies.map((company) => (
+                    <div
+                      key={company.id}
+                      className="border rounded-lg p-4 hover:shadow-md transition-shadow"
+                    >
+                      <h3 className="text-lg font-medium">
+                        {company.company_name}
+                      </h3>
+                      <p className="text-gray-500 text-sm">
+                        {company.industry}
+                      </p>
+                      <p className="text-gray-500 text-sm mb-2">
+                        {company.location} | {company.company_size}
+                      </p>
+                      <div className="mt-2">
+                        <h4 className="text-sm font-medium text-gray-700">
+                          会社概要:
+                        </h4>
+                        <p className="text-sm text-gray-600 line-clamp-3">
+                          {company.description}
+                        </p>
+                      </div>
+                      <div className="mt-4">
+                        <button className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-indigo-700 bg-indigo-100 hover:bg-indigo-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                          詳細を見る
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
         </div>

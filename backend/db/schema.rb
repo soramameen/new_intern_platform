@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_03_29_021512) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_02_080243) do
   create_table "company_profiles", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "company_name"
@@ -39,6 +39,15 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_29_021512) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_intern_profiles_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "nickname"
+    t.text "content"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "offers", force: :cascade do |t|
@@ -71,6 +80,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_29_021512) do
 
   add_foreign_key "company_profiles", "users"
   add_foreign_key "intern_profiles", "users"
+  add_foreign_key "messages", "users"
   add_foreign_key "offers", "users", column: "company_id"
   add_foreign_key "offers", "users", column: "intern_id"
 end

@@ -82,6 +82,12 @@ export const checkLoginStatus = () => {
 export const getInterns = () => {
   return fetchApi("/users");
 };
+// -------------------- 企業一覧取得 ----------------------------
+// 企業一覧取得（インターン生用）
+export const getCompanies = () => {
+  return fetchApi("/users?type=companies");
+};
+
 // ---------------- profile 更新・取得--------------------
 // インターン生プロフィール更新
 export const updateInternProfile = (profileData: any) => {
@@ -128,5 +134,18 @@ export const updateOfferStatus = (offerId: string, status: string) => {
   return fetchApi(`/offers/${offerId}`, {
     method: "PATCH",
     body: JSON.stringify({ offer: { status } }),
+  });
+};
+// -------------------- メッセージ関数 ------------------------
+// メッセージ一覧取得
+export const getMessages = () => {
+  return fetchApi("/messages");
+};
+
+// メッセージ投稿
+export const postMessage = (message: { nickname: string; content: string }) => {
+  return fetchApi("/messages", {
+    method: "POST",
+    body: JSON.stringify({ message }),
   });
 };
