@@ -2798,3 +2798,233 @@ Processing by Api::V1::OffersController#index as */*
 Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.6ms (3 queries, 0 cached) | GC: 0.0ms)
 
 
+Started GET "/api/v1/logged_in" for ::1 at 2025-04-02 14:29:36 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 80ms (Views: 0.4ms | ActiveRecord: 4.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started OPTIONS "/api/v1/users" for ::1 at 2025-04-02 14:30:28 +0900
+Started POST "/api/v1/users" for ::1 at 2025-04-02 14:30:28 +0900
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user" => {"email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "name" => "おかひろ", "user_type" => "intern", "skills" => "c,go", "bio" => "どうもあかひろです"}}
+  [1m[36mTRANSACTION (2.8ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mUser Exists? (9.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'piro@example.com' LIMIT 1 /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('piro@example.com', '$2a$12$oLTNZssEXuoIT5NBRbbzseJ8EYFWXjQiGD9DpklfUzofpIkG12sSe', 'intern', 'おかひろ', NULL, NULL, 'c,go', 'どうもあかひろです', '2025-04-02 05:30:29.060554', '2025-04-02 05:30:29.060554') RETURNING "id" /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mInternProfile Create (0.2ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (13, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 05:30:29.093336', '2025-04-02 05:30:29.093336') RETURNING "id" /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (6.8ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+Completed 201 Created in 251ms (Views: 0.2ms | ActiveRecord: 19.9ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-04-02 14:30:35 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mInternProfile Load (0.2ms)[0m  [1m[34mSELECT "intern_profiles".* FROM "intern_profiles" WHERE "intern_profiles"."user_id" = 13 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:28:in 'User#profile'
+Completed 200 OK in 47ms (Views: 0.4ms | ActiveRecord: 1.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-04-02 14:30:35 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mInternProfile Load (0.1ms)[0m  [1m[34mSELECT "intern_profiles".* FROM "intern_profiles" WHERE "intern_profiles"."user_id" = 13 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:28:in 'User#profile'
+Completed 200 OK in 13ms (Views: 1.2ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started OPTIONS "/api/v1/intern_profile" for ::1 at 2025-04-02 14:31:54 +0900
+Started PATCH "/api/v1/intern_profile" for ::1 at 2025-04-02 14:31:54 +0900
+Processing by Api::V1::InternProfilesController#update as */*
+  Parameters: {"intern_profile" => {"id" => 5, "user_id" => 13, "name" => "岡大翔", "bio" => "全力で歌います", "school" => "岡大", "major" => "工学部情報工学コース", "expected_graduation" => "2027年3月", "skills" => "C,GO,Java", "github_url" => nil, "portfolio_url" => nil, "location" => "岡山", "user" => {"name" => "おかひろ", "email" => "[FILTERED]"}}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13 LIMIT 1 /*action='update',application='Backend',controller='intern_profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mInternProfile Load (0.1ms)[0m  [1m[34mSELECT "intern_profiles".* FROM "intern_profiles" WHERE "intern_profiles"."user_id" = 13 LIMIT 1 /*action='update',application='Backend',controller='intern_profiles'*/[0m
+  ↳ app/controllers/api/v1/intern_profiles_controller.rb:24:in 'Api::V1::InternProfilesController#set_profile'
+[31mUnpermitted parameters: :id, :user_id, :user. Context: { controller: Api::V1::InternProfilesController, action: update, request: #<ActionDispatch::Request:0x00007ff489d59cf8>, params: {"intern_profile" => {"id" => 5, "user_id" => 13, "name" => "岡大翔", "bio" => "全力で歌います", "school" => "岡大", "major" => "工学部情報工学コース", "expected_graduation" => "2027年3月", "skills" => "C,GO,Java", "github_url" => nil, "portfolio_url" => nil, "location" => "岡山", "user" => {"name" => "おかひろ", "email" => "[FILTERED]"}}, "controller" => "api/v1/intern_profiles", "action" => "update"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='Backend',controller='intern_profiles'*/[0m
+  ↳ app/controllers/api/v1/intern_profiles_controller.rb:14:in 'Api::V1::InternProfilesController#update'
+  [1m[36mInternProfile Update (2.1ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = '岡大翔', "bio" = '全力で歌います', "school" = '岡大', "major" = '工学部情報工学コース', "expected_graduation" = '2027年3月', "skills" = 'C,GO,Java', "location" = '岡山', "updated_at" = '2025-04-02 05:31:54.729244' WHERE "intern_profiles"."id" = 5 /*action='update',application='Backend',controller='intern_profiles'*/[0m
+  ↳ app/controllers/api/v1/intern_profiles_controller.rb:14:in 'Api::V1::InternProfilesController#update'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='Backend',controller='intern_profiles'*/[0m
+  ↳ app/controllers/api/v1/intern_profiles_controller.rb:14:in 'Api::V1::InternProfilesController#update'
+Completed 200 OK in 40ms (Views: 3.4ms | ActiveRecord: 2.9ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-04-02 14:32:02 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mInternProfile Load (0.1ms)[0m  [1m[34mSELECT "intern_profiles".* FROM "intern_profiles" WHERE "intern_profiles"."user_id" = 13 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:28:in 'User#profile'
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-04-02 14:32:02 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mInternProfile Load (0.2ms)[0m  [1m[34mSELECT "intern_profiles".* FROM "intern_profiles" WHERE "intern_profiles"."user_id" = 13 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:28:in 'User#profile'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-02 14:33:01 +0900
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'okayama@example.com' LIMIT 1 /*action='create',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:5:in 'Api::V1::SessionsController#create'
+Completed 200 OK in 182ms (Views: 0.4ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-04-02 14:33:02 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 10ms (Views: 0.9ms | ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-04-02 14:33:02 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started OPTIONS "/api/v1/offers" for ::1 at 2025-04-02 14:33:39 +0900
+Started POST "/api/v1/offers" for ::1 at 2025-04-02 14:33:39 +0900
+Processing by Api::V1::OffersController#create as */*
+  Parameters: {"offer" => {"intern_id" => 13, "message" => "一緒に天下とりませんか", "position" => "youtuber", "details" => "編集"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='create',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCACHE User Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:40:in 'Api::V1::OffersController#create'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:40:in 'Api::V1::OffersController#create'
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13 LIMIT 1 /*action='create',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:40:in 'Api::V1::OffersController#create'
+  [1m[36mOffer Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 6 AND "offers"."intern_id" = 13 AND "offers"."status" = 0 LIMIT 1 /*action='create',application='Backend',controller='offers'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (6, 13, '一緒に天下とりませんか', 'youtuber', '編集', 0, '2025-04-02 05:33:40.015527', '2025-04-02 05:33:40.015527') RETURNING "id" /*action='create',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:40:in 'Api::V1::OffersController#create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:40:in 'Api::V1::OffersController#create'
+Completed 201 Created in 52ms (Views: 1.4ms | ActiveRecord: 2.7ms (5 queries, 1 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-02 14:34:06 +0900
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'piro@example.com' LIMIT 1 /*action='create',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:5:in 'Api::V1::SessionsController#create'
+Completed 200 OK in 168ms (Views: 0.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-04-02 14:34:23 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 10ms (Views: 0.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-04-02 14:34:28 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/offers" for ::1 at 2025-04-02 14:34:28 +0900
+Processing by Api::V1::OffersController#index as */*
+  Parameters: {"offer" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13 LIMIT 1 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mOffer Load (0.1ms)[0m  [1m[34mSELECT "offers".* FROM "offers" WHERE "offers"."intern_id" = 13 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:13:in 'Api::V1::OffersController#index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:13:in 'Api::V1::OffersController#index'
+Completed 200 OK in 29ms (Views: 1.6ms | ActiveRecord: 0.4ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/offers" for ::1 at 2025-04-02 14:34:28 +0900
+Processing by Api::V1::OffersController#index as */*
+  Parameters: {"offer" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13 LIMIT 1 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mOffer Load (0.1ms)[0m  [1m[34mSELECT "offers".* FROM "offers" WHERE "offers"."intern_id" = 13 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:13:in 'Api::V1::OffersController#index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:13:in 'Api::V1::OffersController#index'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.3ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started OPTIONS "/api/v1/offers/2" for ::1 at 2025-04-02 14:34:35 +0900
+Started PATCH "/api/v1/offers/2" for ::1 at 2025-04-02 14:34:35 +0900
+Processing by Api::V1::OffersController#update as */*
+  Parameters: {"offer" => {"status" => "declined"}, "id" => "2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13 LIMIT 1 /*action='update',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mOffer Load (0.1ms)[0m  [1m[34mSELECT "offers".* FROM "offers" WHERE "offers"."id" = 2 LIMIT 1 /*action='update',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:68:in 'Api::V1::OffersController#set_offer'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='Backend',controller='offers'*/[0m
+  ↳ app/models/offer.rb:28:in 'Offer#company_user_type'
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='update',application='Backend',controller='offers'*/[0m
+  ↳ app/models/offer.rb:28:in 'Offer#company_user_type'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13 LIMIT 1[0m
+  ↳ app/models/offer.rb:34:in 'Offer#intern_user_type'
+  [1m[36mOffer Update (0.1ms)[0m  [1m[33mUPDATE "offers" SET "status" = 2, "updated_at" = '2025-04-02 05:34:35.490230' WHERE "offers"."id" = 2 /*action='update',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:58:in 'Api::V1::OffersController#update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:58:in 'Api::V1::OffersController#update'
+Completed 200 OK in 38ms (Views: 0.2ms | ActiveRecord: 2.7ms (5 queries, 1 cached) | GC: 20.7ms)
+
+
+Started GET "/api/v1/offers" for ::1 at 2025-04-02 14:34:35 +0900
+Processing by Api::V1::OffersController#index as */*
+  Parameters: {"offer" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13 LIMIT 1 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mOffer Load (0.1ms)[0m  [1m[34mSELECT "offers".* FROM "offers" WHERE "offers"."intern_id" = 13 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:13:in 'Api::V1::OffersController#index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:13:in 'Api::V1::OffersController#index'
+Completed 200 OK in 35ms (Views: 0.1ms | ActiveRecord: 0.3ms (3 queries, 0 cached) | GC: 20.9ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-04-02 14:34:51 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-02 14:35:10 +0900
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'piro@example.com' LIMIT 1 /*action='create',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:5:in 'Api::V1::SessionsController#create'
+Completed 200 OK in 169ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.9ms)
+
+
