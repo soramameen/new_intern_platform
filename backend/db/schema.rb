@@ -45,7 +45,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_29_021512) do
     t.integer "company_id", null: false
     t.integer "intern_id", null: false
     t.text "message", null: false
-    t.string "position"
+    t.string "position", null: false
     t.text "details"
     t.integer "status", default: 0, null: false
     t.datetime "created_at", null: false
