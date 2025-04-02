@@ -1,9 +1,10 @@
 // app/page.tsx
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 relative">
       <div className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
@@ -94,10 +95,11 @@ export default function Home() {
                 </div>
                 <div className="ml-16">
                   <h3 className="text-lg leading-6 font-medium text-gray-900">
-                    企業のためのソリューション
+                    for companies
                   </h3>
                   <p className="mt-2 text-base text-gray-500">
-                    最適なインターン生を見つけ、採用プロセスを効率化します。優秀な人材を獲得するチャンスを逃しません。
+                    無料登録で求めている人材を素早く見つけ出す。
+                    コストをかけずに、優秀なインターン生を獲得するチャンス。
                   </p>
                 </div>
               </div>
@@ -120,10 +122,114 @@ export default function Home() {
                 </div>
                 <div className="ml-16">
                   <h3 className="text-lg leading-6 font-medium text-gray-900">
-                    インターン生のためのキャリア支援
+                    for students
                   </h3>
                   <p className="mt-2 text-base text-gray-500">
-                    あなたのスキルと興味に合った企業を見つけ、実践的な経験を積むチャンスを提供します。
+                    簡単登録で、あなたにぴったりのインターンシップを見つけることができます。
+                    あこがれの企業からもオファーが届くかも。
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 学生の声セクション */}
+      <div className="py-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-extrabold text-indigo-600">
+              学生の声
+            </h2>
+          </div>
+
+          <div className="mt-10 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
+            {/* 学生1 */}
+            <div className="bg-white overflow-hidden shadow rounded-lg">
+              <div className="px-4 py-5 sm:p-6">
+                <div className="flex items-center">
+                  <div className="flex-shrink-0">
+                    <div className="h-20 w-20 rounded-full overflow-hidden bg-gray-100">
+                      <Image
+                        src="/api/placeholder/100/100"
+                        alt="K"
+                        width={100}
+                        height={100}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  </div>
+                  <div className="ml-4">
+                    <h3 className="text-lg font-medium text-gray-900">
+                      教養義塾大学・26卒
+                    </h3>
+                    <p className="text-md text-gray-600">Kさん</p>
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <p className="text-sm text-gray-500">
+                    このサービスを通じてIT企業でのインターンが決まりました。実務経験がなく不安でしたが、丁寧な研修制度があり、プログラミングスキルを着実に伸ばすことができました。チームでの開発経験は大学では得られない貴重なものです。今では自信を持ってコードを書けるようになりました。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 学生2 */}
+            <div className="bg-white overflow-hidden shadow rounded-lg">
+              <div className="px-4 py-5 sm:p-6">
+                <div className="flex items-center">
+                  <div className="flex-shrink-0">
+                    <div className="h-20 w-20 rounded-full overflow-hidden bg-gray-100">
+                      <Image
+                        src="/api/placeholder/100/100"
+                        alt="Y・H"
+                        width={100}
+                        height={100}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  </div>
+                  <div className="ml-4">
+                    <h3 className="text-lg font-medium text-gray-900">
+                      ハーハート大学・25卒
+                    </h3>
+                    <p className="text-md text-gray-600">Hさん</p>
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <p className="text-sm text-gray-500">
+                    海外在住でも参加できるリモートインターンを希望していました。このプラットフォームでは時差を考慮した勤務体制を提案してくれる企業と出会えました。マーケティング部門で実践的なプロジェクトに参加し、国際的な視点を活かした提案ができています。就活にも役立つ経験になっています。
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* 学生3 */}
+            <div className="bg-white overflow-hidden shadow rounded-lg">
+              <div className="px-4 py-5 sm:p-6">
+                <div className="flex items-center">
+                  <div className="flex-shrink-0">
+                    <div className="h-20 w-20 rounded-full overflow-hidden bg-gray-100">
+                      <Image
+                        src="/api/placeholder/100/100"
+                        alt="O"
+                        width={100}
+                        height={100}
+                        className="h-full w-full object-cover"
+                      />
+                    </div>
+                  </div>
+                  <div className="ml-4">
+                    <h3 className="text-lg font-medium text-gray-900">
+                      西京大学・24卒
+                    </h3>
+                    <p className="text-md text-gray-600">Oさん</p>
+                  </div>
+                </div>
+                <div className="mt-4">
+                  <p className="text-sm text-gray-500">
+                    地方在住でキャリアを築くことに不安がありましたが、このサービスで完全リモートのデザインインターンを見つけることができました。実践的なUI/UXデザインを学び、ポートフォリオも充実させることができています。地方にいながら東京の企業と繋がれる機会をいただき感謝しています。
                   </p>
                 </div>
               </div>
@@ -134,12 +240,23 @@ export default function Home() {
 
       <footer className="bg-gray-800">
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-base text-gray-400">
-            &copy; 2025 インターン生・企業マッチングサービス. All rights
-            reserved.
-          </p>
+          <div className="flex flex-col items-center">
+            <p className="text-center text-base text-gray-400">
+              &copy; 2025 インターン生・企業マッチングサービス. All rights
+              reserved.
+            </p>
+          </div>
         </div>
       </footer>
+      {/* 固定表示される登録ボタン */}
+      <div className="fixed bottom-6 inset-x-0 flex justify-center z-50">
+        <Link
+          href="/register"
+          className="flex items-center justify-center px-8 py-3 shadow-lg border border-transparent text-base font-medium rounded-full text-white bg-indigo-600 bg-opacity-80 hover:bg-opacity-100 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200"
+        >
+          今すぐ登録
+        </Link>
+      </div>
     </div>
   );
 }
