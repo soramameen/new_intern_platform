@@ -15,14 +15,31 @@ class Api::V1::UsersController < ApplicationController
   
   # インターン生一覧（企業のみアクセス可能）
   def index
-    if current_user.user_type != 'company'
-      return render json: { error: '権限がありません' }, status: :forbidden
+    # 企業ユーザーがインターン生一覧を取得する場合
+    if current_user.user_type == 'company' && params[:type] != 'companies'
+      interns = User.where(user_type: 'intern')
+      render json: interns.map { |intern| user_response(intern) }
+    # インターン生ユーザーが企業一覧を取得する場合
+    elsif current_user.user_type == 'intern' && params[:type] == 'companies'
+      companies = User.where(user_type: 'company').includes(:company_profile)
+      companies_data = companies.map do |company|
+        profile = company.company_profile
+        {
+          id: company.id,
+          name: company.name,
+          email: company.email,
+          company_name: profile.company_name,
+          industry: profile.industry,
+          location: profile.location,
+          company_size: profile.company_size,
+          description: profile.description
+        }
+      end
+      render json: companies_data
+    else
+      render json: { error: '権限がありません' }, status: :forbidden
     end
-    
-    interns = User.where(user_type: 'intern')
-    render json: interns.map { |intern| user_response(intern) }
   end
-  
   private
   
   def user_params

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       resource :company_profile, only: [:show, :update]
       resources :offers, only: [:index, :show, :create, :update]
       resources :interns, only: [:show]
+      resources :messages, only: [:index, :create]
     end
   end
 end
