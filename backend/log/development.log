@@ -3407,3 +3407,1111 @@ Processing by Api::V1::ProfilesController#show as */*
 Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
 
 
+  [1m[36mActiveRecord::SchemaMigration Load (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Backend'*/[0m
+  [1m[35m (1.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "company_profiles" /*application='Backend'*/[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "company_profiles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "company_name" varchar, "description" text, "industry" varchar, "location" varchar, "website" varchar, "company_size" varchar, "logo" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Backend'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE INDEX "index_company_profiles_on_user_id" ON "company_profiles" ("user_id") /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "intern_profiles" /*application='Backend'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "intern_profiles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "name" varchar, "bio" text, "school" varchar, "major" varchar, "expected_graduation" varchar, "skills" text, "github_url" varchar, "portfolio_url" varchar, "location" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Backend'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_intern_profiles_on_user_id" ON "intern_profiles" ("user_id") /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE IF EXISTS "offers" /*application='Backend'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "offers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "company_id" integer NOT NULL, "intern_id" integer NOT NULL, "message" text NOT NULL, "position" varchar NOT NULL, "details" text, "status" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Backend'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_offers_on_company_intern_status" ON "offers" ("company_id", "intern_id", "status") /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_offers_on_company_id" ON "offers" ("company_id") /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_offers_on_intern_id" ON "offers" ("intern_id") /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" /*application='Backend'*/[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "password_digest" varchar, "user_type" varchar, "name" varchar, "company_name" varchar, "company_description" text, "skills" text, "bio" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_users_on_email" ON "users" ("email") /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[35mSQL (2.4ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Backend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "acompany_profiles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "company_name" varchar, "description" text, "industry" varchar, "location" varchar, "website" varchar, "company_size" varchar, "logo" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Backend'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "tindex_acompany_profiles_on_user_id" ON "acompany_profiles" ("user_id") /*application='Backend'*/[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "acompany_profiles" ("id","user_id","company_name","description","industry","location","website","company_size","logo","created_at","updated_at")
+                     SELECT "id","user_id","company_name","description","industry","location","website","company_size","logo","created_at","updated_at" FROM "company_profiles" /*application='Backend'*/[0m
+  [1m[35m (1.1ms)[0m  [1m[35mDROP TABLE "company_profiles" /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "company_profiles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "company_name" varchar, "description" text, "industry" varchar, "location" varchar, "website" varchar, "company_size" varchar, "logo" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_bb2d63b59d"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_company_profiles_on_user_id" ON "company_profiles" ("user_id") /*application='Backend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "company_profiles" ("id","user_id","company_name","description","industry","location","website","company_size","logo","created_at","updated_at")
+                     SELECT "id","user_id","company_name","description","industry","location","website","company_size","logo","created_at","updated_at" FROM "acompany_profiles" /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "acompany_profiles" /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Backend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aintern_profiles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "name" varchar, "bio" text, "school" varchar, "major" varchar, "expected_graduation" varchar, "skills" text, "github_url" varchar, "portfolio_url" varchar, "location" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aintern_profiles_on_user_id" ON "aintern_profiles" ("user_id") /*application='Backend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "aintern_profiles" ("id","user_id","name","bio","school","major","expected_graduation","skills","github_url","portfolio_url","location","created_at","updated_at")
+                     SELECT "id","user_id","name","bio","school","major","expected_graduation","skills","github_url","portfolio_url","location","created_at","updated_at" FROM "intern_profiles" /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "intern_profiles" /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "intern_profiles" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer NOT NULL, "name" varchar, "bio" text, "school" varchar, "major" varchar, "expected_graduation" varchar, "skills" text, "github_url" varchar, "portfolio_url" varchar, "location" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_ef67311338"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+) /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_intern_profiles_on_user_id" ON "intern_profiles" ("user_id") /*application='Backend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("id","user_id","name","bio","school","major","expected_graduation","skills","github_url","portfolio_url","location","created_at","updated_at")
+                     SELECT "id","user_id","name","bio","school","major","expected_graduation","skills","github_url","portfolio_url","location","created_at","updated_at" FROM "aintern_profiles" /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aintern_profiles" /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Backend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aoffers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "company_id" integer NOT NULL, "intern_id" integer NOT NULL, "message" text NOT NULL, "position" varchar NOT NULL, "details" text, "status" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aoffers_on_intern_id" ON "aoffers" ("intern_id") /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aoffers_on_company_id" ON "aoffers" ("company_id") /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aoffers_on_company_intern_status" ON "aoffers" ("company_id", "intern_id", "status") /*application='Backend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "aoffers" ("id","company_id","intern_id","message","position","details","status","created_at","updated_at")
+                     SELECT "id","company_id","intern_id","message","position","details","status","created_at","updated_at" FROM "offers" /*application='Backend'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE "offers" /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "offers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "company_id" integer NOT NULL, "intern_id" integer NOT NULL, "message" text NOT NULL, "position" varchar NOT NULL, "details" text, "status" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_89ef98830c"
+FOREIGN KEY ("company_id")
+  REFERENCES "users" ("id")
+) /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_offers_on_company_intern_status" ON "offers" ("company_id", "intern_id", "status") /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_offers_on_company_id" ON "offers" ("company_id") /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_offers_on_intern_id" ON "offers" ("intern_id") /*application='Backend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "offers" ("id","company_id","intern_id","message","position","details","status","created_at","updated_at")
+                     SELECT "id","company_id","intern_id","message","position","details","status","created_at","updated_at" FROM "aoffers" /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aoffers" /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Backend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aoffers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "company_id" integer NOT NULL, "intern_id" integer NOT NULL, "message" text NOT NULL, "position" varchar NOT NULL, "details" text, "status" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aoffers_on_intern_id" ON "aoffers" ("intern_id") /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aoffers_on_company_id" ON "aoffers" ("company_id") /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "tindex_aoffers_on_company_intern_status" ON "aoffers" ("company_id", "intern_id", "status") /*application='Backend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "aoffers" ("id","company_id","intern_id","message","position","details","status","created_at","updated_at")
+                     SELECT "id","company_id","intern_id","message","position","details","status","created_at","updated_at" FROM "offers" /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "offers" /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "offers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "company_id" integer NOT NULL, "intern_id" integer NOT NULL, "message" text NOT NULL, "position" varchar NOT NULL, "details" text, "status" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_89ef98830c"
+FOREIGN KEY ("company_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_8bbee6a0a6"
+FOREIGN KEY ("intern_id")
+  REFERENCES "users" ("id")
+) /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_offers_on_company_intern_status" ON "offers" ("company_id", "intern_id", "status") /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_offers_on_company_id" ON "offers" ("company_id") /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_offers_on_intern_id" ON "offers" ("intern_id") /*application='Backend'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "offers" ("id","company_id","intern_id","message","position","details","status","created_at","updated_at")
+                     SELECT "id","company_id","intern_id","message","position","details","status","created_at","updated_at" FROM "aoffers" /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aoffers" /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Backend'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='Backend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20250329021512) /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20250329021338),
+(20250328055415),
+(20250328055349),
+(20250328024855); /*application='Backend'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Backend'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-04-02 06:12:41.053394', '2025-04-02 06:12:41.053397') RETURNING "key" /*application='Backend'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'ba36d9e34b22df12844224a8da71c61988563fad', '2025-04-02 06:12:41.057952', '2025-04-02 06:12:41.057954') RETURNING "key" /*application='Backend'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+  [1m[36mOffer Load (2.9ms)[0m  [1m[34mSELECT "offers".* FROM "offers" /*application='Backend'*/[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern@example.com', '$2a$12$lOYsS2iQCY8J6Qw0qWfMaeklvajMNLnla788BHWTVgdvDmOGmYja.', 'intern', '山田太郎', NULL, NULL, 'JavaScript, React, Ruby', '大学3年生です。Webアプリケーション開発に興味があります。', '2025-04-02 06:12:41.504045', '2025-04-02 06:12:41.504045') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.2ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:41.534759', '2025-04-02 06:12:41.534759') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (5.8ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (1.3ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = '山田太郎', "bio" = '大学3年生です。Webアプリケーション開発に興味があります。', "school" = '東京大学', "major" = '情報工学', "expected_graduation" = '2026年3月', "skills" = 'JavaScript, React, Ruby', "github_url" = 'https://github.com/yamada-taro', "portfolio_url" = 'https://portfolio.yamada-taro.example.com', "location" = '東京都', "updated_at" = '2025-04-02 06:12:41.551475' WHERE "intern_profiles"."id" = 1 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_1_vextf@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_1_vextf@example.com', '$2a$12$VqB5QF3mQLoL.tgi0s9kqeOHkCCA2bI6EzE9DcQl5Y./69QtZAQGK', 'intern', 'インターン生1', NULL, NULL, 'Ruby, Rails, PostgreSQL', '明治大学の学生です。3年生で、データサイエンスを専攻しています。', '2025-04-02 06:12:41.750392', '2025-04-02 06:12:41.750392') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.2ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:41.757932', '2025-04-02 06:12:41.757932') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (1.1ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生1', "bio" = '明治大学の学生です。3年生で、データサイエンスを専攻しています。', "school" = '上智大学', "major" = '応用数学', "expected_graduation" = '2028年4月', "skills" = 'Ruby, Rails, PostgreSQL', "github_url" = 'https://github.com/user_1', "portfolio_url" = 'https://portfolio-1.example.com', "location" = '大阪府', "updated_at" = '2025-04-02 06:12:41.781699' WHERE "intern_profiles"."id" = 2 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_2_ekwju@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_2_ekwju@example.com', '$2a$12$P23Dt7c4l2qVpkkYKxO64.TRk8lLwJSWaICtQhr8tqi3.yoldbfU.', 'intern', 'インターン生2', NULL, NULL, 'Swift, iOS, Objective-C', '名古屋大学の学生です。4年生で、システム工学を専攻しています。', '2025-04-02 06:12:41.964677', '2025-04-02 06:12:41.964677') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:41.967176', '2025-04-02 06:12:41.967176') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (1.1ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生2', "bio" = '名古屋大学の学生です。4年生で、システム工学を専攻しています。', "school" = '上智大学', "major" = 'サイバーセキュリティ', "expected_graduation" = '2027年11月', "skills" = 'Swift, iOS, Objective-C', "github_url" = 'https://github.com/user_2', "location" = '京都府', "updated_at" = '2025-04-02 06:12:41.971704' WHERE "intern_profiles"."id" = 3 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_3_zgsvu@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_3_zgsvu@example.com', '$2a$12$sHeGlmqi6v13udSVT.aAJ.4Mv6YCSnKPGWtpLdbWf8aKlRWeb06Am', 'intern', 'インターン生3', NULL, NULL, 'HTML, CSS, JavaScript, jQuery', '東京大学の学生です。1年生で、サイバーセキュリティを専攻しています。', '2025-04-02 06:12:42.157639', '2025-04-02 06:12:42.157639') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:42.162183', '2025-04-02 06:12:42.162183') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (0.9ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生3', "bio" = '東京大学の学生です。1年生で、サイバーセキュリティを専攻しています。', "school" = '東京大学', "major" = 'コンピュータサイエンス', "expected_graduation" = '2027年7月', "skills" = 'HTML, CSS, JavaScript, jQuery', "github_url" = 'https://github.com/user_3', "portfolio_url" = 'https://portfolio-3.example.com', "location" = '福岡県', "updated_at" = '2025-04-02 06:12:42.164521' WHERE "intern_profiles"."id" = 4 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_4_wsmjd@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_4_wsmjd@example.com', '$2a$12$812CqeMakaM8wzKvID3kZuaMbHjO.i9LZ2RYYuLTJPOXp/ddSbH3K', 'intern', 'インターン生4', NULL, NULL, 'UI/UX Design, Figma, Adobe XD', '京都大学の学生です。4年生で、応用数学を専攻しています。', '2025-04-02 06:12:42.351709', '2025-04-02 06:12:42.351709') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (5, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:42.355265', '2025-04-02 06:12:42.355265') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (0.8ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生4', "bio" = '京都大学の学生です。4年生で、応用数学を専攻しています。', "school" = '東北大学', "major" = 'ロボティクス', "expected_graduation" = '2027年12月', "skills" = 'UI/UX Design, Figma, Adobe XD', "github_url" = 'https://github.com/user_4', "portfolio_url" = 'https://portfolio-4.example.com', "location" = '埼玉県', "updated_at" = '2025-04-02 06:12:42.357139' WHERE "intern_profiles"."id" = 5 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_5_gdfxu@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_5_gdfxu@example.com', '$2a$12$iYFFbDCJnWGA5ikXYVLLDOwSM6P0D88VlTE/PLOnOg3C3NCRodC3W', 'intern', 'インターン生5', NULL, NULL, 'React Native, Flutter, Mobile Development', '立命館大学の学生です。2年生で、経営情報学を専攻しています。', '2025-04-02 06:12:42.539474', '2025-04-02 06:12:42.539474') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:42.541230', '2025-04-02 06:12:42.541230') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (1.0ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生5', "bio" = '立命館大学の学生です。2年生で、経営情報学を専攻しています。', "school" = '大阪大学', "major" = 'ロボティクス', "expected_graduation" = '2026年8月', "skills" = 'React Native, Flutter, Mobile Development', "github_url" = 'https://github.com/user_5', "portfolio_url" = 'https://portfolio-5.example.com', "location" = '神奈川県', "updated_at" = '2025-04-02 06:12:42.544237' WHERE "intern_profiles"."id" = 6 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_6_ufwvs@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_6_ufwvs@example.com', '$2a$12$8ZubpwsCClGzHkc9Mj8CxeL92HW1zFW3WiAbTaTRh6SoZJEc1GdWu', 'intern', 'インターン生6', NULL, NULL, 'Data Science, Machine Learning, Python', '同志社大学の学生です。3年生で、物理学を専攻しています。', '2025-04-02 06:12:42.728986', '2025-04-02 06:12:42.728986') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (7, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:42.731461', '2025-04-02 06:12:42.731461') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (0.8ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生6', "bio" = '同志社大学の学生です。3年生で、物理学を専攻しています。', "school" = '上智大学', "major" = '応用数学', "expected_graduation" = '2026年11月', "skills" = 'Data Science, Machine Learning, Python', "github_url" = 'https://github.com/user_6', "location" = '東京都', "updated_at" = '2025-04-02 06:12:42.733076' WHERE "intern_profiles"."id" = 7 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_7_qplgn@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_7_qplgn@example.com', '$2a$12$8OsGjehhH0tLQrP.eEH8KePXNqxatO17nmzCXJzsrbMd0phxvs/Ty', 'intern', 'インターン生7', NULL, NULL, 'GraphQL, Apollo, API Development', '名古屋大学の学生です。4年生で、デザイン学を専攻しています。', '2025-04-02 06:12:42.914375', '2025-04-02 06:12:42.914375') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (8, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:42.921449', '2025-04-02 06:12:42.921449') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (1.0ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生7', "bio" = '名古屋大学の学生です。4年生で、デザイン学を専攻しています。', "school" = '北海道大学', "major" = '電気電子工学', "expected_graduation" = '2027年10月', "skills" = 'GraphQL, Apollo, API Development', "github_url" = 'https://github.com/user_7', "portfolio_url" = 'https://portfolio-7.example.com', "location" = '大阪府', "updated_at" = '2025-04-02 06:12:42.926923' WHERE "intern_profiles"."id" = 8 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_8_vwnqf@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_8_vwnqf@example.com', '$2a$12$E1BYc6SwuyknHhReNAIe4OZ1FjKQotO8/k30mpAVyl18p5YhIxndC', 'intern', 'インターン生8', NULL, NULL, 'Data Science, Machine Learning, Python', '名古屋大学の学生です。4年生で、データサイエンスを専攻しています。', '2025-04-02 06:12:43.110642', '2025-04-02 06:12:43.110642') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (9, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:43.118904', '2025-04-02 06:12:43.118904') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (2.5ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生8', "bio" = '名古屋大学の学生です。4年生で、データサイエンスを専攻しています。', "school" = '慶應義塾大学', "major" = 'データサイエンス', "expected_graduation" = '2028年6月', "skills" = 'Data Science, Machine Learning, Python', "github_url" = 'https://github.com/user_8', "portfolio_url" = 'https://portfolio-8.example.com', "location" = '福岡県', "updated_at" = '2025-04-02 06:12:43.123527' WHERE "intern_profiles"."id" = 9 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_9_thyae@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_9_thyae@example.com', '$2a$12$I03tr03KtLhWbdC.VEy2TuqnvsaCoKHw6vUc2xRb0FW8DpFLJaI9i', 'intern', 'インターン生9', NULL, NULL, 'React Native, Flutter, Mobile Development', '明治大学の学生です。1年生で、経営情報学を専攻しています。', '2025-04-02 06:12:43.311190', '2025-04-02 06:12:43.311190') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (10, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:43.315436', '2025-04-02 06:12:43.315436') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (3.5ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生9', "bio" = '明治大学の学生です。1年生で、経営情報学を専攻しています。', "school" = '九州大学', "major" = 'サイバーセキュリティ', "expected_graduation" = '2028年3月', "skills" = 'React Native, Flutter, Mobile Development', "github_url" = 'https://github.com/user_9', "portfolio_url" = 'https://portfolio-9.example.com', "location" = '茨城県', "updated_at" = '2025-04-02 06:12:43.321233' WHERE "intern_profiles"."id" = 10 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_10_yavhr@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_10_yavhr@example.com', '$2a$12$NNhqO7LDOfoUgd2VCpWn8OtSdZIkydxEX3tslFWbF6IG6i4S/e/PW', 'intern', 'インターン生10', NULL, NULL, 'PHP, Laravel, MySQL', '上智大学の学生です。3年生で、人工知能を専攻しています。', '2025-04-02 06:12:43.512359', '2025-04-02 06:12:43.512359') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (11, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:43.516209', '2025-04-02 06:12:43.516209') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (3.2ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生10', "bio" = '上智大学の学生です。3年生で、人工知能を専攻しています。', "school" = '早稲田大学', "major" = 'システム工学', "expected_graduation" = '2027年11月', "skills" = 'PHP, Laravel, MySQL', "github_url" = 'https://github.com/user_10', "portfolio_url" = 'https://portfolio-10.example.com', "location" = '埼玉県', "updated_at" = '2025-04-02 06:12:43.520969' WHERE "intern_profiles"."id" = 11 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (2.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_11_ykxwz@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_11_ykxwz@example.com', '$2a$12$fBOWhP7mHETcTHhJfBpic.zPoSMkFehRNQbrsQ/chOiXl2ZvamM5W', 'intern', 'インターン生11', NULL, NULL, 'Unity, Game Development, C#', '法政大学の学生です。1年生で、データサイエンスを専攻しています。', '2025-04-02 06:12:43.708909', '2025-04-02 06:12:43.708909') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (12, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:43.711643', '2025-04-02 06:12:43.711643') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (2.7ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生11', "bio" = '法政大学の学生です。1年生で、データサイエンスを専攻しています。', "school" = '大阪大学', "major" = 'メディア学', "expected_graduation" = '2028年5月', "skills" = 'Unity, Game Development, C#', "github_url" = 'https://github.com/user_11', "portfolio_url" = 'https://portfolio-11.example.com', "location" = '福岡県', "updated_at" = '2025-04-02 06:12:43.715124' WHERE "intern_profiles"."id" = 12 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_12_jfayq@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_12_jfayq@example.com', '$2a$12$PQoX6gpHShy8Gs8dGUmcfeCk7YNkZoWPf9AZnKg547n4t0/gaba8K', 'intern', 'インターン生12', NULL, NULL, 'Data Science, Machine Learning, Python', '明治大学の学生です。2年生で、サイバーセキュリティを専攻しています。', '2025-04-02 06:12:43.900678', '2025-04-02 06:12:43.900678') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (13, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:43.902035', '2025-04-02 06:12:43.902035') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (2.9ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生12', "bio" = '明治大学の学生です。2年生で、サイバーセキュリティを専攻しています。', "school" = '東北大学', "major" = 'システム工学', "expected_graduation" = '2026年9月', "skills" = 'Data Science, Machine Learning, Python', "github_url" = 'https://github.com/user_12', "portfolio_url" = 'https://portfolio-12.example.com', "location" = '京都府', "updated_at" = '2025-04-02 06:12:43.905833' WHERE "intern_profiles"."id" = 13 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_13_yoraj@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_13_yoraj@example.com', '$2a$12$mT2hAT4QUSeQYoBymXvU7exvbKLxBoTIksRm7mTl1FkWoMUKTSOie', 'intern', 'インターン生13', NULL, NULL, 'Product Management, Agile, Scrum', '明治大学の学生です。2年生で、メディア学を専攻しています。', '2025-04-02 06:12:44.096571', '2025-04-02 06:12:44.096571') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (14, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:44.098549', '2025-04-02 06:12:44.098549') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (1.9ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生13', "bio" = '明治大学の学生です。2年生で、メディア学を専攻しています。', "school" = '東北大学', "major" = '機械工学', "expected_graduation" = '2026年6月', "skills" = 'Product Management, Agile, Scrum', "github_url" = 'https://github.com/user_13', "portfolio_url" = 'https://portfolio-13.example.com', "location" = '東京都', "updated_at" = '2025-04-02 06:12:44.103680' WHERE "intern_profiles"."id" = 14 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_14_gauhm@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_14_gauhm@example.com', '$2a$12$RSOVv1KzHgSYpPFOKvUQ4ubDRF6QSadxWVwn0w5i6oVSCuICOfcr6', 'intern', 'インターン生14', NULL, NULL, 'JavaScript, React, Node.js', '京都大学の学生です。4年生で、データサイエンスを専攻しています。', '2025-04-02 06:12:44.288048', '2025-04-02 06:12:44.288048') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (15, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:44.294434', '2025-04-02 06:12:44.294434') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (0.9ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生14', "bio" = '京都大学の学生です。4年生で、データサイエンスを専攻しています。', "school" = '慶應義塾大学', "major" = 'サイバーセキュリティ', "expected_graduation" = '2026年8月', "skills" = 'JavaScript, React, Node.js', "github_url" = 'https://github.com/user_14', "portfolio_url" = 'https://portfolio-14.example.com', "location" = '福岡県', "updated_at" = '2025-04-02 06:12:44.302522' WHERE "intern_profiles"."id" = 15 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_15_qiktb@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_15_qiktb@example.com', '$2a$12$LFxrlx/WRC9CYG8ap0gVlOXfjBZ1gtsEU1zYXJpvk7Sn/5JCMdEVm', 'intern', 'インターン生15', NULL, NULL, 'Ruby, Rails, PostgreSQL', '東京大学の学生です。2年生で、システム工学を専攻しています。', '2025-04-02 06:12:44.484679', '2025-04-02 06:12:44.484679') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (16, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:44.487040', '2025-04-02 06:12:44.487040') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (0.8ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生15', "bio" = '東京大学の学生です。2年生で、システム工学を専攻しています。', "school" = '北海道大学', "major" = 'メディア学', "expected_graduation" = '2027年3月', "skills" = 'Ruby, Rails, PostgreSQL', "github_url" = 'https://github.com/user_15', "portfolio_url" = 'https://portfolio-15.example.com', "location" = '埼玉県', "updated_at" = '2025-04-02 06:12:44.489529' WHERE "intern_profiles"."id" = 16 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_16_merwn@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_16_merwn@example.com', '$2a$12$wQbOVJ5Qa3.X4UvrwSb6OeR3xGHCdFDAQHo0/WH1zBoqJMrjwddGO', 'intern', 'インターン生16', NULL, NULL, 'AWS, GCP, Cloud Infrastructure', '東京大学の学生です。2年生で、人工知能を専攻しています。', '2025-04-02 06:12:44.669515', '2025-04-02 06:12:44.669515') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.2ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (17, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:44.670632', '2025-04-02 06:12:44.670632') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (0.7ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生16', "bio" = '東京大学の学生です。2年生で、人工知能を専攻しています。', "school" = '北海道大学', "major" = '機械工学', "expected_graduation" = '2028年3月', "skills" = 'AWS, GCP, Cloud Infrastructure', "github_url" = 'https://github.com/user_16', "portfolio_url" = 'https://portfolio-16.example.com', "location" = '宮城県', "updated_at" = '2025-04-02 06:12:44.672992' WHERE "intern_profiles"."id" = 17 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_17_wtxpy@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_17_wtxpy@example.com', '$2a$12$7df2Kf26sUxZXXbvoFpk.OI5DlqgO96lHDCSRDin4IqYTBUBbqoBS', 'intern', 'インターン生17', NULL, NULL, 'Swift, iOS, Objective-C', '東北大学の学生です。4年生で、応用数学を専攻しています。', '2025-04-02 06:12:44.853286', '2025-04-02 06:12:44.853286') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.4ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (18, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:44.855485', '2025-04-02 06:12:44.855485') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (0.8ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生17', "bio" = '東北大学の学生です。4年生で、応用数学を専攻しています。', "school" = '関西大学', "major" = '機械工学', "expected_graduation" = '2027年6月', "skills" = 'Swift, iOS, Objective-C', "github_url" = 'https://github.com/user_17', "location" = '沖縄県', "updated_at" = '2025-04-02 06:12:44.857552' WHERE "intern_profiles"."id" = 18 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_18_nvmkq@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_18_nvmkq@example.com', '$2a$12$wSnl4arUOg8SzaR2eEJxwuhOXcuS3U.YkzocWykRAjYtepDWTVeM.', 'intern', 'インターン生18', NULL, NULL, 'AWS, GCP, Cloud Infrastructure', '関西大学の学生です。1年生で、デザイン学を専攻しています。', '2025-04-02 06:12:45.038314', '2025-04-02 06:12:45.038314') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.6ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (19, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:45.040505', '2025-04-02 06:12:45.040505') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (3.2ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生18', "bio" = '関西大学の学生です。1年生で、デザイン学を専攻しています。', "school" = '京都大学', "major" = '生命情報学', "expected_graduation" = '2028年9月', "skills" = 'AWS, GCP, Cloud Infrastructure', "github_url" = 'https://github.com/user_18', "portfolio_url" = 'https://portfolio-18.example.com', "location" = '埼玉県', "updated_at" = '2025-04-02 06:12:45.042853' WHERE "intern_profiles"."id" = 19 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_19_kcxrl@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_19_kcxrl@example.com', '$2a$12$bF/lA6oXD66F1k0hwkaS5.7PJn0v6cBju9P/OxlGOFW1MamjUOMES', 'intern', 'インターン生19', NULL, NULL, 'Docker, Kubernetes, DevOps', '東北大学の学生です。2年生で、システム工学を専攻しています。', '2025-04-02 06:12:45.225043', '2025-04-02 06:12:45.225043') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (20, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:45.226355', '2025-04-02 06:12:45.226355') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (0.9ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生19', "bio" = '東北大学の学生です。2年生で、システム工学を専攻しています。', "school" = '早稲田大学', "major" = '物理学', "expected_graduation" = '2028年11月', "skills" = 'Docker, Kubernetes, DevOps', "github_url" = 'https://github.com/user_19', "portfolio_url" = 'https://portfolio-19.example.com', "location" = '茨城県', "updated_at" = '2025-04-02 06:12:45.227967' WHERE "intern_profiles"."id" = 20 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_20_siygr@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_20_siygr@example.com', '$2a$12$9SpNnIp61SVwL0PCQm8ILOVfVTwEgPsRrvSRgOZVUKo/qrqMi9xzi', 'intern', 'インターン生20', NULL, NULL, 'Python, Django, Flask, AWS', '関西大学の学生です。4年生で、機械工学を専攻しています。', '2025-04-02 06:12:45.408413', '2025-04-02 06:12:45.408413') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (21, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:45.409548', '2025-04-02 06:12:45.409548') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (0.8ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生20', "bio" = '関西大学の学生です。4年生で、機械工学を専攻しています。', "school" = '北海道大学', "major" = 'データサイエンス', "expected_graduation" = '2026年4月', "skills" = 'Python, Django, Flask, AWS', "github_url" = 'https://github.com/user_20', "portfolio_url" = 'https://portfolio-20.example.com', "location" = '神奈川県', "updated_at" = '2025-04-02 06:12:45.410962' WHERE "intern_profiles"."id" = 21 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_21_ubdiw@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_21_ubdiw@example.com', '$2a$12$LGnhlvj/nl4b90EbAfKLReXtObiiKJXtGXqPPjetPvoRX7jVrWPGO', 'intern', 'インターン生21', NULL, NULL, 'Kotlin, Android, Firebase', '法政大学の学生です。2年生で、経営情報学を専攻しています。', '2025-04-02 06:12:45.596048', '2025-04-02 06:12:45.596048') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.0ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (22, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:45.597170', '2025-04-02 06:12:45.597170') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (0.8ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生21', "bio" = '法政大学の学生です。2年生で、経営情報学を専攻しています。', "school" = '早稲田大学', "major" = '生命情報学', "expected_graduation" = '2027年1月', "skills" = 'Kotlin, Android, Firebase', "github_url" = 'https://github.com/user_21', "portfolio_url" = 'https://portfolio-21.example.com', "location" = '千葉県', "updated_at" = '2025-04-02 06:12:45.598543' WHERE "intern_profiles"."id" = 22 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_22_jzlse@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_22_jzlse@example.com', '$2a$12$XLN5MyUnAqLDNWKY4xMvieDMsMCUc9DlKhkYR7rF1vEYrmfRHy4IS', 'intern', 'インターン生22', NULL, NULL, 'PHP, Laravel, MySQL', '同志社大学の学生です。3年生で、生命情報学を専攻しています。', '2025-04-02 06:12:45.784934', '2025-04-02 06:12:45.784934') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (23, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:45.786158', '2025-04-02 06:12:45.786158') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (13.1ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生22', "bio" = '同志社大学の学生です。3年生で、生命情報学を専攻しています。', "school" = '北海道大学', "major" = '電気電子工学', "expected_graduation" = '2027年11月', "skills" = 'PHP, Laravel, MySQL', "github_url" = 'https://github.com/user_22', "location" = '静岡県', "updated_at" = '2025-04-02 06:12:45.787682' WHERE "intern_profiles"."id" = 23 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_23_qjzsk@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_23_qjzsk@example.com', '$2a$12$IlaUV.2KDwQ2fNtGcy6vEuO9C1Q2c462vNdrPcOywSO.QqeEsohAO', 'intern', 'インターン生23', NULL, NULL, 'Java, Spring Boot, Hibernate', '上智大学の学生です。2年生で、サイバーセキュリティを専攻しています。', '2025-04-02 06:12:45.983089', '2025-04-02 06:12:45.983089') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (24, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:45.984720', '2025-04-02 06:12:45.984720') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (1.0ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生23', "bio" = '上智大学の学生です。2年生で、サイバーセキュリティを専攻しています。', "school" = '慶應義塾大学', "major" = 'メディア学', "expected_graduation" = '2026年8月', "skills" = 'Java, Spring Boot, Hibernate', "github_url" = 'https://github.com/user_23', "portfolio_url" = 'https://portfolio-23.example.com', "location" = '宮城県', "updated_at" = '2025-04-02 06:12:45.987677' WHERE "intern_profiles"."id" = 24 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_24_qkfva@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_24_qkfva@example.com', '$2a$12$goRzvuQFDJn.C8bg7UovmemmhZKJR0ZvKOO9s1PV/cEvQowjkNlRy', 'intern', 'インターン生24', NULL, NULL, 'AWS, GCP, Cloud Infrastructure', '法政大学の学生です。2年生で、応用数学を専攻しています。', '2025-04-02 06:12:46.171551', '2025-04-02 06:12:46.171551') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.2ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (25, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:46.173559', '2025-04-02 06:12:46.173559') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (0.7ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生24', "bio" = '法政大学の学生です。2年生で、応用数学を専攻しています。', "school" = '早稲田大学', "major" = 'データサイエンス', "expected_graduation" = '2028年3月', "skills" = 'AWS, GCP, Cloud Infrastructure', "github_url" = 'https://github.com/user_24', "portfolio_url" = 'https://portfolio-24.example.com', "location" = '京都府', "updated_at" = '2025-04-02 06:12:46.175042' WHERE "intern_profiles"."id" = 25 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_25_niqop@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_25_niqop@example.com', '$2a$12$BSu7rgeFU46W3HnCqdehlOAkZYrHJNMwNyhO6a6PLm4AOJxLUkNIe', 'intern', 'インターン生25', NULL, NULL, 'Product Management, Agile, Scrum', '北海道大学の学生です。1年生で、メディア学を専攻しています。', '2025-04-02 06:12:46.359600', '2025-04-02 06:12:46.359600') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (26, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:46.360733', '2025-04-02 06:12:46.360733') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (0.8ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生25', "bio" = '北海道大学の学生です。1年生で、メディア学を専攻しています。', "school" = '同志社大学', "major" = 'メディア学', "expected_graduation" = '2027年11月', "skills" = 'Product Management, Agile, Scrum', "github_url" = 'https://github.com/user_25', "location" = '愛知県', "updated_at" = '2025-04-02 06:12:46.362603' WHERE "intern_profiles"."id" = 26 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (2.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_26_deuio@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_26_deuio@example.com', '$2a$12$0tL/Im9bvrsthOtUs7O1tuU223s.VJ1oG5XM1PqMF0VnmJYKD7HW6', 'intern', 'インターン生26', NULL, NULL, 'TypeScript, Angular, Vue.js', '北海道大学の学生です。2年生で、コンピュータサイエンスを専攻しています。', '2025-04-02 06:12:46.543306', '2025-04-02 06:12:46.543306') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (27, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:46.544427', '2025-04-02 06:12:46.544427') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (0.8ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生26', "bio" = '北海道大学の学生です。2年生で、コンピュータサイエンスを専攻しています。', "school" = '関西大学', "major" = '応用数学', "expected_graduation" = '2026年3月', "skills" = 'TypeScript, Angular, Vue.js', "github_url" = 'https://github.com/user_26', "portfolio_url" = 'https://portfolio-26.example.com', "location" = '京都府', "updated_at" = '2025-04-02 06:12:46.545816' WHERE "intern_profiles"."id" = 27 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_27_rygai@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_27_rygai@example.com', '$2a$12$wa07D11j3ohuv7RgNyCXfOLv9fqPLErueJcXVtvuMIalFLC8cbSka', 'intern', 'インターン生27', NULL, NULL, 'Java, Spring Boot, Hibernate', '名古屋大学の学生です。4年生で、ロボティクスを専攻しています。', '2025-04-02 06:12:46.729524', '2025-04-02 06:12:46.729524') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (28, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:46.730871', '2025-04-02 06:12:46.730871') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (1.0ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生27', "bio" = '名古屋大学の学生です。4年生で、ロボティクスを専攻しています。', "school" = '同志社大学', "major" = 'データサイエンス', "expected_graduation" = '2027年5月', "skills" = 'Java, Spring Boot, Hibernate', "github_url" = 'https://github.com/user_27', "location" = '大阪府', "updated_at" = '2025-04-02 06:12:46.732782' WHERE "intern_profiles"."id" = 28 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (2.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_28_zewfm@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_28_zewfm@example.com', '$2a$12$BKMJvfuft/PeOwwW2Xv5wuh9LowI1hOftN3wiryVDjKwv.ELast56', 'intern', 'インターン生28', NULL, NULL, 'GraphQL, Apollo, API Development', '名古屋大学の学生です。1年生で、機械工学を専攻しています。', '2025-04-02 06:12:46.914404', '2025-04-02 06:12:46.914404') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (29, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:46.915530', '2025-04-02 06:12:46.915530') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (0.8ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生28', "bio" = '名古屋大学の学生です。1年生で、機械工学を専攻しています。', "school" = '早稲田大学', "major" = '人工知能', "expected_graduation" = '2028年4月', "skills" = 'GraphQL, Apollo, API Development', "github_url" = 'https://github.com/user_28', "portfolio_url" = 'https://portfolio-28.example.com', "location" = '京都府', "updated_at" = '2025-04-02 06:12:46.916944' WHERE "intern_profiles"."id" = 29 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'intern_29_ndqeu@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('intern_29_ndqeu@example.com', '$2a$12$MA51IbAbamyjqvn1os.lPOe6WA9eYg4gkGcFiN6EnMXuEsnEabYIu', 'intern', 'インターン生29', NULL, NULL, 'GraphQL, Apollo, API Development', '明治大学の学生です。4年生で、コンピュータサイエンスを専攻しています。', '2025-04-02 06:12:47.107783', '2025-04-02 06:12:47.107783') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mInternProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (30, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:47.112600', '2025-04-02 06:12:47.112600') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mInternProfile Update (0.9ms)[0m  [1m[33mUPDATE "intern_profiles" SET "name" = 'インターン生29', "bio" = '明治大学の学生です。4年生で、コンピュータサイエンスを専攻しています。', "school" = '名古屋大学', "major" = 'コンピュータサイエンス', "expected_graduation" = '2027年4月', "skills" = 'GraphQL, Apollo, API Development', "github_url" = 'https://github.com/user_29', "portfolio_url" = 'https://portfolio-29.example.com', "location" = '千葉県', "updated_at" = '2025-04-02 06:12:47.117875' WHERE "intern_profiles"."id" = 30 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'company@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('company@example.com', '$2a$12$dtRyopjX4AeQtHgbYGq0KONKLXrM39zweb9AJC386f7En8xfMexYK', 'company', '採用担当', '株式会社サンプル', 'Webアプリケーション開発を行うベンチャー企業です。JavaScriptやReactを使った開発を行っています。', NULL, NULL, '2025-04-02 06:12:47.303265', '2025-04-02 06:12:47.303265') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (31, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:47.334790', '2025-04-02 06:12:47.334790') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Update (0.9ms)[0m  [1m[33mUPDATE "company_profiles" SET "company_name" = '株式会社サンプル', "description" = 'Webアプリケーション開発を行うベンチャー企業です。JavaScriptやReactを使った開発を行っています。', "industry" = 'Webサービス/SaaS', "location" = '東京都', "website" = 'https://sample-company.example.com', "company_size" = '11-50人', "updated_at" = '2025-04-02 06:12:47.342179' WHERE "company_profiles"."id" = 1 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'company_1_kjlag@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('company_1_kjlag@example.com', '$2a$12$al8XBtOcXixDRJRpfcrfmeGd9lzpBpvJTXn2SvylU3zW1QnNlPGJq', 'company', '採用担当1', '株式会社テクノ1', 'IoTを行う企業です。RustやGoやSystems Programmingなどの技術を活用した開発をしています。', NULL, NULL, '2025-04-02 06:12:47.525181', '2025-04-02 06:12:47.525181') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (32, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:47.526531', '2025-04-02 06:12:47.526531') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Update (0.9ms)[0m  [1m[33mUPDATE "company_profiles" SET "company_name" = '株式会社テクノ1', "description" = 'IoTを行う企業です。RustやGoやSystems Programmingなどの技術を活用した開発をしています。', "industry" = 'デジタルトランスフォーメーション', "location" = '千葉県', "website" = 'https://company-1.example.com', "company_size" = '1000人以上', "updated_at" = '2025-04-02 06:12:47.528002' WHERE "company_profiles"."id" = 2 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'company_2_rovwg@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('company_2_rovwg@example.com', '$2a$12$2Uj974DMSpe5YG2Z0JFYMOl7mLqpgQdWD4ZYiq8EWfnWI8WoP/lJS', 'company', '採用担当2', '株式会社テクノ2', 'クラウドサービスを行う企業です。iOSやObjective-Cなどの技術を活用した開発をしています。', NULL, NULL, '2025-04-02 06:12:47.708050', '2025-04-02 06:12:47.708050') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Create (0.2ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (33, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:47.709281', '2025-04-02 06:12:47.709281') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Update (0.9ms)[0m  [1m[33mUPDATE "company_profiles" SET "company_name" = '株式会社テクノ2', "description" = 'クラウドサービスを行う企業です。iOSやObjective-Cなどの技術を活用した開発をしています。', "industry" = 'クラウドサービス', "location" = '千葉県', "website" = 'https://company-2.example.com', "company_size" = '11-50人', "updated_at" = '2025-04-02 06:12:47.710672' WHERE "company_profiles"."id" = 3 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'company_3_xbjpz@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('company_3_xbjpz@example.com', '$2a$12$MD0ShurcBwUEd8kV3PAauukYL35dn6/MAdoR1tr9yycc2pyk7a8Qa', 'company', '採用担当3', '株式会社テクノ3', 'モバイルアプリ開発を行う企業です。JavaScriptやReactなどの技術を活用した開発をしています。', NULL, NULL, '2025-04-02 06:12:47.890576', '2025-04-02 06:12:47.890576') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (34, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:47.891873', '2025-04-02 06:12:47.891873') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Update (0.8ms)[0m  [1m[33mUPDATE "company_profiles" SET "company_name" = '株式会社テクノ3', "description" = 'モバイルアプリ開発を行う企業です。JavaScriptやReactなどの技術を活用した開発をしています。', "industry" = 'エンタープライズソフトウェア', "location" = '広島県', "website" = 'https://company-3.example.com', "company_size" = '301-1000人', "updated_at" = '2025-04-02 06:12:47.900795' WHERE "company_profiles"."id" = 4 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'company_4_cmiul@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('company_4_cmiul@example.com', '$2a$12$MqZR0T4hpjZ2OSPz0F0rg.ATLFDAK./p18oZ23QSsnKbKYAHuqr46', 'company', '採用担当4', '株式会社テクノ4', 'デジタルトランスフォーメーションを行う企業です。DockerやKubernetesやDevOpsなどの技術を活用した開発をしています。', NULL, NULL, '2025-04-02 06:12:48.080265', '2025-04-02 06:12:48.080265') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Create (0.3ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (35, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:48.082636', '2025-04-02 06:12:48.082636') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Update (0.8ms)[0m  [1m[33mUPDATE "company_profiles" SET "company_name" = '株式会社テクノ4', "description" = 'デジタルトランスフォーメーションを行う企業です。DockerやKubernetesやDevOpsなどの技術を活用した開発をしています。', "industry" = 'セキュリティ', "location" = '京都府', "website" = 'https://company-4.example.com', "company_size" = '101-300人', "updated_at" = '2025-04-02 06:12:48.084275' WHERE "company_profiles"."id" = 5 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.0ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'company_5_vpqbf@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('company_5_vpqbf@example.com', '$2a$12$JsyYIFzaHcdyz7GD9yKUFO4f5NkmU.tI2CsLhiilZ9jtJ0ahtE3Am', 'company', '採用担当5', '株式会社テクノ5', 'クラウドサービスを行う企業です。UI/UX DesignやFigmaやAdobe XDなどの技術を活用した開発をしています。', NULL, NULL, '2025-04-02 06:12:48.265376', '2025-04-02 06:12:48.265376') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (36, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:48.266988', '2025-04-02 06:12:48.266988') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Update (0.8ms)[0m  [1m[33mUPDATE "company_profiles" SET "company_name" = '株式会社テクノ5', "description" = 'クラウドサービスを行う企業です。UI/UX DesignやFigmaやAdobe XDなどの技術を活用した開発をしています。', "industry" = 'EC/通販', "location" = '埼玉県', "website" = 'https://company-5.example.com', "company_size" = '11-50人', "updated_at" = '2025-04-02 06:12:48.268512' WHERE "company_profiles"."id" = 6 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (2.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'company_6_jhfme@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('company_6_jhfme@example.com', '$2a$12$N0ht7FubT8XdhC2Oovy2Zewizg2vz7d0EyOsrHAjWAKDBmskvIXVC', 'company', '採用担当6', '株式会社テクノ6', 'HealthTechを行う企業です。Game DevelopmentやC#などの技術を活用した開発をしています。', NULL, NULL, '2025-04-02 06:12:48.450182', '2025-04-02 06:12:48.450182') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (37, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:48.451268', '2025-04-02 06:12:48.451268') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Update (0.8ms)[0m  [1m[33mUPDATE "company_profiles" SET "company_name" = '株式会社テクノ6', "description" = 'HealthTechを行う企業です。Game DevelopmentやC#などの技術を活用した開発をしています。', "industry" = 'コンサルティング', "location" = '静岡県', "website" = 'https://company-6.example.com', "company_size" = '11-50人', "updated_at" = '2025-04-02 06:12:48.452615' WHERE "company_profiles"."id" = 7 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'company_7_wxgab@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('company_7_wxgab@example.com', '$2a$12$GKV4uOo0Y11LyyfTxkB3ROHMt69iFpJPZx0KW9T09X.Mtfhg8v9i6', 'company', '採用担当7', '株式会社テクノ7', 'FinTechを行う企業です。HTMLやCSSやJavaScriptなどの技術を活用した開発をしています。', NULL, NULL, '2025-04-02 06:12:48.633606', '2025-04-02 06:12:48.633606') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (38, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:48.635038', '2025-04-02 06:12:48.635038') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Update (0.8ms)[0m  [1m[33mUPDATE "company_profiles" SET "company_name" = '株式会社テクノ7', "description" = 'FinTechを行う企業です。HTMLやCSSやJavaScriptなどの技術を活用した開発をしています。', "industry" = 'Webサービス/SaaS', "location" = '兵庫県', "website" = 'https://company-7.example.com', "company_size" = '1000人以上', "updated_at" = '2025-04-02 06:12:48.636720' WHERE "company_profiles"."id" = 8 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.6ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'company_8_prylw@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('company_8_prylw@example.com', '$2a$12$Ap1WFZYbB/gV9zDAOd5DQeXxjZj0LgNQvj0nROsv3BGH9I9KlrWli', 'company', '採用担当8', '株式会社テクノ8', 'エンタープライズソフトウェアを行う企業です。ReactやNode.jsなどの技術を活用した開発をしています。', NULL, NULL, '2025-04-02 06:12:48.819970', '2025-04-02 06:12:48.819970') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (39, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:48.821510', '2025-04-02 06:12:48.821510') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Update (0.8ms)[0m  [1m[33mUPDATE "company_profiles" SET "company_name" = '株式会社テクノ8', "description" = 'エンタープライズソフトウェアを行う企業です。ReactやNode.jsなどの技術を活用した開発をしています。', "industry" = 'モバイルアプリ開発', "location" = '埼玉県', "website" = 'https://company-8.example.com', "company_size" = '1-10人', "updated_at" = '2025-04-02 06:12:48.823094' WHERE "company_profiles"."id" = 9 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'company_9_qycxo@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('company_9_qycxo@example.com', '$2a$12$Q9rffZsW49aPS9T8UzPEseJoANFTai3zFgXNVvoJaSIF0inmfnZqy', 'company', '採用担当9', '株式会社テクノ9', 'IoTを行う企業です。UI/UX DesignやFigmaやAdobe XDなどの技術を活用した開発をしています。', NULL, NULL, '2025-04-02 06:12:49.006139', '2025-04-02 06:12:49.006139') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Create (0.0ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (40, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:49.007249', '2025-04-02 06:12:49.007249') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Update (0.8ms)[0m  [1m[33mUPDATE "company_profiles" SET "company_name" = '株式会社テクノ9', "description" = 'IoTを行う企業です。UI/UX DesignやFigmaやAdobe XDなどの技術を活用した開発をしています。', "industry" = 'デジタルトランスフォーメーション', "location" = '静岡県', "website" = 'https://company-9.example.com', "company_size" = '51-100人', "updated_at" = '2025-04-02 06:12:49.008589' WHERE "company_profiles"."id" = 10 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'company_10_kbqwt@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('company_10_kbqwt@example.com', '$2a$12$I5x5lduYnH2Hp8309W5GDey1Egk/Q37k6At6cZbs39iOuqHTYurKW', 'company', '採用担当10', '株式会社テクノ10', '広告/マーケティングを行う企業です。Data ScienceやPythonなどの技術を活用した開発をしています。', NULL, NULL, '2025-04-02 06:12:49.193294', '2025-04-02 06:12:49.193294') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (41, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:49.194660', '2025-04-02 06:12:49.194660') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Update (0.9ms)[0m  [1m[33mUPDATE "company_profiles" SET "company_name" = '株式会社テクノ10', "description" = '広告/マーケティングを行う企業です。Data ScienceやPythonなどの技術を活用した開発をしています。', "industry" = 'AI/機械学習', "location" = '千葉県', "website" = 'https://company-10.example.com', "company_size" = '1000人以上', "updated_at" = '2025-04-02 06:12:49.196294' WHERE "company_profiles"."id" = 11 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'company_11_ntewx@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('company_11_ntewx@example.com', '$2a$12$uAKDJ6DR7IiPiuhQBGOgXeWS5k8jWiGUkSwogHPS8gCRS7B.K2zVO', 'company', '採用担当11', '株式会社テクノ11', 'コンサルティングを行う企業です。JavaやSpring BootやHibernateなどの技術を活用した開発をしています。', NULL, NULL, '2025-04-02 06:12:49.379706', '2025-04-02 06:12:49.379706') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (42, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:49.380869', '2025-04-02 06:12:49.380869') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Update (0.8ms)[0m  [1m[33mUPDATE "company_profiles" SET "company_name" = '株式会社テクノ11', "description" = 'コンサルティングを行う企業です。JavaやSpring BootやHibernateなどの技術を活用した開発をしています。', "industry" = 'エンタープライズソフトウェア', "location" = '愛知県', "website" = 'https://company-11.example.com', "company_size" = '1000人以上', "updated_at" = '2025-04-02 06:12:49.382367' WHERE "company_profiles"."id" = 12 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'company_12_lptwb@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('company_12_lptwb@example.com', '$2a$12$JfrHSUyGSB3AVdKqnqNtwewYpn06MP7VFJwFpO0pTuSHXmLGhtxSy', 'company', '採用担当12', '株式会社テクノ12', 'クラウドサービスを行う企業です。PythonやDjangoやFlaskなどの技術を活用した開発をしています。', NULL, NULL, '2025-04-02 06:12:49.562781', '2025-04-02 06:12:49.562781') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (43, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:49.563875', '2025-04-02 06:12:49.563875') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Update (0.8ms)[0m  [1m[33mUPDATE "company_profiles" SET "company_name" = '株式会社テクノ12', "description" = 'クラウドサービスを行う企業です。PythonやDjangoやFlaskなどの技術を活用した開発をしています。', "industry" = 'セキュリティ', "location" = '愛知県', "website" = 'https://company-12.example.com', "company_size" = '301-1000人', "updated_at" = '2025-04-02 06:12:49.565347' WHERE "company_profiles"."id" = 13 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'company_13_zowqn@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('company_13_zowqn@example.com', '$2a$12$TT4UsmtXYpZbX0a/focllekBt7g4pRbjIjmJ5JAIK2MMdKDyA2fEG', 'company', '採用担当13', '株式会社テクノ13', 'デジタルトランスフォーメーションを行う企業です。Androidなどの技術を活用した開発をしています。', NULL, NULL, '2025-04-02 06:12:49.744857', '2025-04-02 06:12:49.744857') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (44, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:49.745936', '2025-04-02 06:12:49.745936') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Update (0.8ms)[0m  [1m[33mUPDATE "company_profiles" SET "company_name" = '株式会社テクノ13', "description" = 'デジタルトランスフォーメーションを行う企業です。Androidなどの技術を活用した開発をしています。', "industry" = 'HealthTech', "location" = '京都府', "website" = 'https://company-13.example.com', "company_size" = '301-1000人', "updated_at" = '2025-04-02 06:12:49.747359' WHERE "company_profiles"."id" = 14 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'company_14_omgbh@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('company_14_omgbh@example.com', '$2a$12$9Z6sGb3FOJHlpS3adGsdt.2uPWM6ErfziZ2u0TJeW.TuMXHNoGPPC', 'company', '採用担当14', '株式会社テクノ14', 'FinTechを行う企業です。FigmaやAdobe XDなどの技術を活用した開発をしています。', NULL, NULL, '2025-04-02 06:12:49.927743', '2025-04-02 06:12:49.927743') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (45, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:49.931583', '2025-04-02 06:12:49.931583') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Update (0.8ms)[0m  [1m[33mUPDATE "company_profiles" SET "company_name" = '株式会社テクノ14', "description" = 'FinTechを行う企業です。FigmaやAdobe XDなどの技術を活用した開発をしています。', "industry" = 'モバイルアプリ開発', "location" = '神奈川県', "website" = 'https://company-14.example.com', "company_size" = '301-1000人', "updated_at" = '2025-04-02 06:12:49.933485' WHERE "company_profiles"."id" = 15 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'company_15_ozrys@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('company_15_ozrys@example.com', '$2a$12$hiovTRqTHJmPhonWsll1QO0/6mRL.8838sfDYEjP7TiALL1GLTzvG', 'company', '採用担当15', '株式会社テクノ15', 'ゲーム開発を行う企業です。Machine LearningやPythonなどの技術を活用した開発をしています。', NULL, NULL, '2025-04-02 06:12:50.117084', '2025-04-02 06:12:50.117084') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (46, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:50.118301', '2025-04-02 06:12:50.118301') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Update (0.8ms)[0m  [1m[33mUPDATE "company_profiles" SET "company_name" = '株式会社テクノ15', "description" = 'ゲーム開発を行う企業です。Machine LearningやPythonなどの技術を活用した開発をしています。', "industry" = 'コンサルティング', "location" = '沖縄県', "website" = 'https://company-15.example.com', "company_size" = '301-1000人', "updated_at" = '2025-04-02 06:12:50.119625' WHERE "company_profiles"."id" = 16 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'company_16_hzweb@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('company_16_hzweb@example.com', '$2a$12$shI9DDk5h5oNivs58h/NyenAfhm5P1NpE6c31dgodfBRxwPx3.E3.', 'company', '採用担当16', '株式会社テクノ16', 'クラウドサービスを行う企業です。RubyやRailsやPostgreSQLなどの技術を活用した開発をしています。', NULL, NULL, '2025-04-02 06:12:50.314364', '2025-04-02 06:12:50.314364') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (47, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:50.315702', '2025-04-02 06:12:50.315702') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Update (0.9ms)[0m  [1m[33mUPDATE "company_profiles" SET "company_name" = '株式会社テクノ16', "description" = 'クラウドサービスを行う企業です。RubyやRailsやPostgreSQLなどの技術を活用した開発をしています。', "industry" = 'モバイルアプリ開発', "location" = '広島県', "website" = 'https://company-16.example.com', "company_size" = '51-100人', "updated_at" = '2025-04-02 06:12:50.317469' WHERE "company_profiles"."id" = 17 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'company_17_cgniu@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('company_17_cgniu@example.com', '$2a$12$05DTJobp5QcNgMSfbUcysOWEXYc2q54c0ODotOGfNFoK1iNRmR0MG', 'company', '採用担当17', '株式会社テクノ17', 'ゲーム開発を行う企業です。Data Scienceなどの技術を活用した開発をしています。', NULL, NULL, '2025-04-02 06:12:50.502060', '2025-04-02 06:12:50.502060') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (48, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:50.503265', '2025-04-02 06:12:50.503265') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Update (2.0ms)[0m  [1m[33mUPDATE "company_profiles" SET "company_name" = '株式会社テクノ17', "description" = 'ゲーム開発を行う企業です。Data Scienceなどの技術を活用した開発をしています。', "industry" = 'EC/通販', "location" = '茨城県', "website" = 'https://company-17.example.com', "company_size" = '1-10人', "updated_at" = '2025-04-02 06:12:50.504734' WHERE "company_profiles"."id" = 18 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'company_18_csibo@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('company_18_csibo@example.com', '$2a$12$VE.z3X1nDg88V55jLmwTPuS3LNJMDUNN8WybY0JjUPz4cBWaYJRxG', 'company', '採用担当18', '株式会社テクノ18', 'コンサルティングを行う企業です。PHPやLaravelやMySQLなどの技術を活用した開発をしています。', NULL, NULL, '2025-04-02 06:12:50.690632', '2025-04-02 06:12:50.690632') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (49, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:50.692214', '2025-04-02 06:12:50.692214') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Update (1.7ms)[0m  [1m[33mUPDATE "company_profiles" SET "company_name" = '株式会社テクノ18', "description" = 'コンサルティングを行う企業です。PHPやLaravelやMySQLなどの技術を活用した開発をしています。', "industry" = 'EC/通販', "location" = '北海道', "website" = 'https://company-18.example.com', "company_size" = '1000人以上', "updated_at" = '2025-04-02 06:12:50.693636' WHERE "company_profiles"."id" = 19 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'company_19_xngzh@example.com' LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Create (0.1ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('company_19_xngzh@example.com', '$2a$12$xWrsY3eEZgAQVnFeaYcnm.fi2TsIoWvif.LbLqf3rtb/3zpNNxYT.', 'company', '採用担当19', '株式会社テクノ19', 'EdTechを行う企業です。PythonやDjangoやFlaskやAWSなどの技術を活用した開発をしています。', NULL, NULL, '2025-04-02 06:12:50.876604', '2025-04-02 06:12:50.876604') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Create (0.1ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (50, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:12:50.877809', '2025-04-02 06:12:50.877809') RETURNING "id" /*application='Backend'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mCompanyProfile Update (1.0ms)[0m  [1m[33mUPDATE "company_profiles" SET "company_name" = '株式会社テクノ19', "description" = 'EdTechを行う企業です。PythonやDjangoやFlaskやAWSなどの技術を活用した開発をしています。', "industry" = 'EC/通販', "location" = '千葉県', "website" = 'https://company-19.example.com', "company_size" = '51-100人', "updated_at" = '2025-04-02 06:12:50.879198' WHERE "company_profiles"."id" = 20 /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."user_type" = 'company' /*application='Backend'*/[0m
+  [1m[36mUser Pluck (0.1ms)[0m  [1m[34mSELECT "users"."id" FROM "users" WHERE "users"."user_type" = 'intern' /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 31 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 31 AND "offers"."intern_id" = 5 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.2ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (31, 5, 'クラウドエンジニアとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'クラウドエンジニア', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:50.949581', '2025-04-02 06:12:50.949581') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 31 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 31 AND "offers"."intern_id" = 18 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.2ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (31, 18, 'データサイエンティストとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'データサイエンティスト', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:50.966189', '2025-04-02 06:12:50.966189') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 32 AND "offers"."intern_id" = 25 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (32, 25, 'モバイルアプリ開発者として一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'モバイルアプリ開発者', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:50.976140', '2025-04-02 06:12:50.976140') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 32 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 7 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 32 AND "offers"."intern_id" = 7 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (32, 7, 'データサイエンティストとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'データサイエンティスト', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:50.982411', '2025-04-02 06:12:50.982411') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 33 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 33 AND "offers"."intern_id" = 6 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.2ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (33, 6, '機械学習エンジニアとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', '機械学習エンジニア', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:50.988848', '2025-04-02 06:12:50.988848') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 34 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 34 AND "offers"."intern_id" = 18 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.3ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (34, 18, 'UI/UXデザイナーとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'UI/UXデザイナー', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:51.000491', '2025-04-02 06:12:51.000491') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 34 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 3 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 34 AND "offers"."intern_id" = 3 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.2ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (34, 3, 'クラウドエンジニアとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'クラウドエンジニア', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 1, '2025-04-02 06:12:51.021865', '2025-04-02 06:12:51.021865') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 35 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 35 AND "offers"."intern_id" = 8 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.2ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (35, 8, '機械学習エンジニアとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', '機械学習エンジニア', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:51.033691', '2025-04-02 06:12:51.033691') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 35 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 35 AND "offers"."intern_id" = 4 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (35, 4, 'フロントエンドエンジニアとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'フロントエンドエンジニア', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 1, '2025-04-02 06:12:51.044528', '2025-04-02 06:12:51.044528') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 35 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 35 AND "offers"."intern_id" = 10 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.2ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (35, 10, 'DevOpsエンジニアとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'DevOpsエンジニア', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:51.055341', '2025-04-02 06:12:51.055341') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 36 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 36 AND "offers"."intern_id" = 25 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.7ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (36, 25, 'モバイルアプリ開発者として一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'モバイルアプリ開発者', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:51.062383', '2025-04-02 06:12:51.062383') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 37 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 37 AND "offers"."intern_id" = 9 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (37, 9, 'データサイエンティストとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'データサイエンティスト', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:51.072353', '2025-04-02 06:12:51.072353') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 37 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 1 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 37 AND "offers"."intern_id" = 1 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (37, 1, 'ゲーム開発者として一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'ゲーム開発者', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:51.080762', '2025-04-02 06:12:51.080762') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 38 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 30 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 38 AND "offers"."intern_id" = 30 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.2ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (38, 30, 'データサイエンティストとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'データサイエンティスト', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 1, '2025-04-02 06:12:51.098665', '2025-04-02 06:12:51.098665') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 38 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 38 AND "offers"."intern_id" = 6 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (38, 6, 'セキュリティエンジニアとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'セキュリティエンジニア', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 1, '2025-04-02 06:12:51.115299', '2025-04-02 06:12:51.115299') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 38 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 14 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 38 AND "offers"."intern_id" = 14 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (38, 14, 'ゲーム開発者として一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'ゲーム開発者', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:51.126320', '2025-04-02 06:12:51.126320') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 39 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 39 AND "offers"."intern_id" = 13 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (39, 13, 'データサイエンティストとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'データサイエンティスト', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:51.133659', '2025-04-02 06:12:51.133659') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 39 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 25 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 39 AND "offers"."intern_id" = 25 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (39, 25, 'クラウドエンジニアとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'クラウドエンジニア', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:51.140743', '2025-04-02 06:12:51.140743') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 40 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 40 AND "offers"."intern_id" = 18 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (40, 18, 'フロントエンドエンジニアとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'フロントエンドエンジニア', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:51.147357', '2025-04-02 06:12:51.147357') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 40 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 40 AND "offers"."intern_id" = 6 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (40, 6, 'セキュリティエンジニアとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'セキュリティエンジニア', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:51.154126', '2025-04-02 06:12:51.154126') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 40 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 27 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 40 AND "offers"."intern_id" = 27 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.2ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (40, 27, 'フロントエンドエンジニアとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'フロントエンドエンジニア', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 2, '2025-04-02 06:12:51.165608', '2025-04-02 06:12:51.165608') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 41 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 4 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 41 AND "offers"."intern_id" = 4 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (41, 4, 'ブロックチェーンエンジニアとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'ブロックチェーンエンジニア', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:51.174049', '2025-04-02 06:12:51.174049') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 42 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 9 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 42 AND "offers"."intern_id" = 9 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (42, 9, 'UI/UXデザイナーとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'UI/UXデザイナー', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 1, '2025-04-02 06:12:51.182320', '2025-04-02 06:12:51.182320') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 43 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 15 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 43 AND "offers"."intern_id" = 15 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.7ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (43, 15, 'QAエンジニアとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'QAエンジニア', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:51.190344', '2025-04-02 06:12:51.190344') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 44 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 24 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 44 AND "offers"."intern_id" = 24 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (44, 24, 'モバイルアプリ開発者として一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'モバイルアプリ開発者', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 1, '2025-04-02 06:12:51.197235', '2025-04-02 06:12:51.197235') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 45 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 16 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 45 AND "offers"."intern_id" = 16 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (45, 16, 'テクニカルライターとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'テクニカルライター', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 1, '2025-04-02 06:12:51.207716', '2025-04-02 06:12:51.207716') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 45 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 17 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 45 AND "offers"."intern_id" = 17 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (45, 17, 'フロントエンドエンジニアとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'フロントエンドエンジニア', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 2, '2025-04-02 06:12:51.215989', '2025-04-02 06:12:51.215989') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 45 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 8 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 45 AND "offers"."intern_id" = 8 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (45, 8, 'クラウドエンジニアとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'クラウドエンジニア', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:51.224783', '2025-04-02 06:12:51.224783') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 46 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 18 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 46 AND "offers"."intern_id" = 18 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.2ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (46, 18, 'QAエンジニアとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'QAエンジニア', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:51.233677', '2025-04-02 06:12:51.233677') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 47 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 16 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 47 AND "offers"."intern_id" = 16 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (47, 16, 'フルスタックエンジニアとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'フルスタックエンジニア', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:51.249165', '2025-04-02 06:12:51.249165') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 47 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 5 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 47 AND "offers"."intern_id" = 5 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (47, 5, 'バックエンドエンジニアとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'バックエンドエンジニア', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:51.256731', '2025-04-02 06:12:51.256731') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 48 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 10 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 48 AND "offers"."intern_id" = 10 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (48, 10, 'プロダクトマネージャーとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'プロダクトマネージャー', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:51.262599', '2025-04-02 06:12:51.262599') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 49 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 21 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 49 AND "offers"."intern_id" = 21 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (49, 21, 'バックエンドエンジニアとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'バックエンドエンジニア', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 1, '2025-04-02 06:12:51.269668', '2025-04-02 06:12:51.269668') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 50 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 16 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 50 AND "offers"."intern_id" = 16 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.1ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (50, 16, 'テクニカルライターとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'テクニカルライター', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:51.277350', '2025-04-02 06:12:51.277350') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 50 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 50 AND "offers"."intern_id" = 12 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (0.8ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (50, 12, 'データサイエンティストとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', 'データサイエンティスト', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:51.287306', '2025-04-02 06:12:51.287306') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Backend'*/[0m
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 50 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 13 LIMIT 1 /*application='Backend'*/[0m
+  [1m[36mOffer Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "offers" WHERE "offers"."company_id" = 50 AND "offers"."intern_id" = 13 AND "offers"."status" = 0 LIMIT 1 /*application='Backend'*/[0m
+  ↳ app/models/offer.rb:22:in 'Offer#no_duplicate_pending_offers'
+  [1m[36mOffer Create (1.3ms)[0m  [1m[32mINSERT INTO "offers" ("company_id", "intern_id", "message", "position", "details", "status", "created_at", "updated_at") VALUES (50, 13, '機械学習エンジニアとして一緒に働きませんか？あなたのスキルと経験を活かせるプロジェクトがあります。', '機械学習エンジニア', '勤務時間: 週20時間〜
+報酬: 時給1,500円〜
+期間: 3ヶ月〜
+リモートワーク可能です。', 0, '2025-04-02 06:12:51.294118', '2025-04-02 06:12:51.294118') RETURNING "id" /*application='Backend'*/[0m
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Backend'*/[0m
+Started POST "/api/v1/users" for ::1 at 2025-04-02 15:13:55 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user" => {"email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "name" => "そらい", "user_type" => "intern", "skills" => "JavaScript,Python", "bio" => "頑張ります"}}
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mUser Exists? (10.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'sorai@example.com' LIMIT 1 /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('sorai@example.com', '$2a$12$3t.4DabXANugWc1WQHyPeuYcsuNYxvMFe4MzO68IkiDneaRx.w/e2', 'intern', 'そらい', NULL, NULL, 'JavaScript,Python', '頑張ります', '2025-04-02 06:13:55.490561', '2025-04-02 06:13:55.490561') RETURNING "id" /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mInternProfile Create (0.2ms)[0m  [1m[32mINSERT INTO "intern_profiles" ("user_id", "name", "bio", "school", "major", "expected_graduation", "skills", "github_url", "portfolio_url", "location", "created_at", "updated_at") VALUES (51, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:13:55.517915', '2025-04-02 06:13:55.517915') RETURNING "id" /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/models/user.rb:40:in 'User#create_profile'
+  [1m[36mTRANSACTION (6.4ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+Completed 201 Created in 275ms (Views: 0.4ms | ActiveRecord: 23.0ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-04-02 15:14:00 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 51 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mInternProfile Load (0.2ms)[0m  [1m[34mSELECT "intern_profiles".* FROM "intern_profiles" WHERE "intern_profiles"."user_id" = 51 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:28:in 'User#profile'
+Completed 200 OK in 56ms (Views: 0.3ms | ActiveRecord: 1.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-04-02 15:14:00 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 51 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mInternProfile Load (0.2ms)[0m  [1m[34mSELECT "intern_profiles".* FROM "intern_profiles" WHERE "intern_profiles"."user_id" = 51 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:28:in 'User#profile'
+Completed 200 OK in 15ms (Views: 1.2ms | ActiveRecord: 0.7ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/offers" for ::1 at 2025-04-02 15:14:04 +0900
+Processing by Api::V1::OffersController#index as */*
+  Parameters: {"offer" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 51 LIMIT 1 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mOffer Load (1.4ms)[0m  [1m[34mSELECT "offers".* FROM "offers" WHERE "offers"."intern_id" = 51 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:13:in 'Api::V1::OffersController#index'
+Completed 200 OK in 27ms (Views: 1.1ms | ActiveRecord: 1.1ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/offers" for ::1 at 2025-04-02 15:14:05 +0900
+Processing by Api::V1::OffersController#index as */*
+  Parameters: {"offer" => {}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 51 LIMIT 1 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mOffer Load (0.5ms)[0m  [1m[34mSELECT "offers".* FROM "offers" WHERE "offers"."intern_id" = 51 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:13:in 'Api::V1::OffersController#index'
+Completed 200 OK in 8ms (Views: 0.6ms | ActiveRecord: 1.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-04-02 15:14:05 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 51 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/users" for ::1 at 2025-04-02 15:15:02 +0900
+Processing by Api::V1::UsersController#create as */*
+  Parameters: {"user" => {"email" => "[FILTERED]", "password" => "[FILTERED]", "password_confirmation" => "[FILTERED]", "name" => "岡大太郎", "user_type" => "company", "company_name" => "岡山大学", "company_description" => "岡山を盛り上げます"}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'okayama@example.com' LIMIT 1 /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mUser Create (0.2ms)[0m  [1m[32mINSERT INTO "users" ("email", "password_digest", "user_type", "name", "company_name", "company_description", "skills", "bio", "created_at", "updated_at") VALUES ('okayama@example.com', '$2a$12$AtSTeoouMdEwekvAiP0VcOl5g/nlAR8c33d7Wl.CgDau1XOwrqU6O', 'company', '岡大太郎', '岡山大学', '岡山を盛り上げます', NULL, NULL, '2025-04-02 06:15:02.260953', '2025-04-02 06:15:02.260953') RETURNING "id" /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+  [1m[36mCompanyProfile Create (0.2ms)[0m  [1m[32mINSERT INTO "company_profiles" ("user_id", "company_name", "description", "industry", "location", "website", "company_size", "logo", "created_at", "updated_at") VALUES (52, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2025-04-02 06:15:02.298585', '2025-04-02 06:15:02.298585') RETURNING "id" /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/models/user.rb:42:in 'User#create_profile'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='create',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:8:in 'Api::V1::UsersController#create'
+Completed 201 Created in 236ms (Views: 0.3ms | ActiveRecord: 2.6ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-04-02 15:15:02 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 52 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 11ms (Views: 1.2ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-04-02 15:15:02 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 52 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-04-02 15:16:02 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 52 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.2ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 52 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:28:in 'User#profile'
+Completed 200 OK in 20ms (Views: 0.4ms | ActiveRecord: 0.8ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/profile" for ::1 at 2025-04-02 15:16:02 +0900
+Processing by Api::V1::ProfilesController#show as */*
+  Parameters: {"profile" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 52 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mCompanyProfile Load (0.1ms)[0m  [1m[34mSELECT "company_profiles".* FROM "company_profiles" WHERE "company_profiles"."user_id" = 52 LIMIT 1 /*action='show',application='Backend',controller='profiles'*/[0m
+  ↳ app/models/user.rb:28:in 'User#profile'
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/offers" for ::1 at 2025-04-02 15:16:03 +0900
+Processing by Api::V1::OffersController#index as */*
+  Parameters: {"offer" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 52 LIMIT 1 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mOffer Load (0.2ms)[0m  [1m[34mSELECT "offers".* FROM "offers" WHERE "offers"."company_id" = 52 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:10:in 'Api::V1::OffersController#index'
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/offers" for ::1 at 2025-04-02 15:16:03 +0900
+Processing by Api::V1::OffersController#index as */*
+  Parameters: {"offer" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 52 LIMIT 1 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mOffer Load (0.2ms)[0m  [1m[34mSELECT "offers".* FROM "offers" WHERE "offers"."company_id" = 52 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:10:in 'Api::V1::OffersController#index'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-04-02 15:16:06 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 52 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-04-02 15:16:06 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 52 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 8ms (Views: 2.2ms | ActiveRecord: 0.6ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
