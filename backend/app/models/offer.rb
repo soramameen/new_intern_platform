@@ -3,7 +3,7 @@ class Offer < ApplicationRecord
   belongs_to :company, class_name: 'User', foreign_key: 'company_id'
   belongs_to :intern, class_name: 'User', foreign_key: 'intern_id'
   
-  enum status: { pending: 0, accepted: 1, declined: 2 }
+  enum :status, { pending: 0, accepted: 1, declined: 2 }
   
   validates :company_id, presence: true
   validates :intern_id, presence: true

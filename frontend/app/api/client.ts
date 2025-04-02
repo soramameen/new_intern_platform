@@ -1,4 +1,10 @@
-// app/api/client.ts
+/*
+ * APIクライアント
+ * このファイルはAPIとの通信を行うための関数を定義しています。
+ * 各関数はfetchを使用してAPIエンドポイントにリクエストを送信します。
+ * 認証トークンが必要な場合は、ヘッダーに追加されます。
+ */
+
 import { getToken } from "@/app/auth/utils";
 
 // API基本URL
@@ -43,7 +49,7 @@ const fetchApi = async (endpoint: string, options: RequestInit = {}) => {
     throw error;
   }
 };
-
+//-------------------- ユーザー登録・ログイン・ログアウト ------------------------
 // ユーザー登録
 export const registerUser = (userData: any) => {
   return fetchApi("/users", {
@@ -71,11 +77,12 @@ export const logout = () => {
 export const checkLoginStatus = () => {
   return fetchApi("/logged_in");
 };
-
+//-------------------- インターン生取得 ------------------------
 // インターン生一覧取得（企業ユーザー用）
 export const getInterns = () => {
   return fetchApi("/users");
 };
+// ---------------- profile 更新・取得--------------------
 // インターン生プロフィール更新
 export const updateInternProfile = (profileData: any) => {
   return fetchApi("/intern_profile", {
@@ -95,4 +102,31 @@ export const updateCompanyProfile = (profileData: any) => {
 // プロフィール取得
 export const getProfile = () => {
   return fetchApi("/profile");
+};
+//-------------------- オファー関数 ------------------------
+
+// オファー送信（企業側）
+export const sendOffer = (offerData: any) => {
+  return fetchApi("/offers", {
+    method: "POST",
+    body: JSON.stringify({ offer: offerData }),
+  });
+};
+
+// オファー一覧取得
+export const getOffers = () => {
+  return fetchApi("/offers");
+};
+
+// オファー詳細取得
+export const getOfferById = (id: string) => {
+  return fetchApi(`/offers/${id}`);
+};
+
+// オファーステータス更新（インターン側）
+export const updateOfferStatus = (offerId: string, status: string) => {
+  return fetchApi(`/offers/${offerId}`, {
+    method: "PATCH",
+    body: JSON.stringify({ offer: { status } }),
+  });
 };

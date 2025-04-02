@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get "interns/show"
-      get "offers/index"
-      get "offers/show"
-      get "offers/create"
-      get "offers/update"
+      # get "offers/index"
+      # get "offers/show"
+      # get "offers/create"
+      # get "offers/update"
       # 認証関連
       post '/login', to: 'sessions#create'
       get '/logged_in', to: 'sessions#status'

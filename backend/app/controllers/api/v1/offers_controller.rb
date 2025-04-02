@@ -7,7 +7,7 @@ class Api::V1::OffersController < ApplicationController
   def index
     if current_user.company?
       offers = current_user.sent_offers.includes(:intern)
-      render json: offers.as_json(include: { intern: { only: [:id, :name, :email], methods: [:skills_array] } })
+      render json: offers.as_json(include: { intern: { only: [:id, :name, :email]} })
     elsif current_user.intern?
       offers = current_user.received_offers.includes(:company)
       render json: offers.as_json(include: { company: { only: [:id, :name, :email, :company_name] } })
@@ -29,13 +29,13 @@ class Api::V1::OffersController < ApplicationController
   
   # オファー作成（企業のみ）
   def create
+    puts offer_params.inspect
     unless current_user.company?
       return render json: { error: '権限がありません' }, status: :forbidden
     end
     
     @offer = Offer.new(offer_params)
     @offer.company_id = current_user.id
-    @offer.status = :pending
     
     if @offer.save
       render json: @offer, status: :created
@@ -64,6 +64,7 @@ class Api::V1::OffersController < ApplicationController
   end
   
   def offer_params
+    puts params.inspect
     params.require(:offer).permit(:intern_id, :message, :position, :details)
   end
   
