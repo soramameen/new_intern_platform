@@ -21,6 +21,8 @@ Rails.application.routes.draw do
       resources :offers, only: [:index, :show, :create, :update]
       resources :interns, only: [:show]
       resources :messages, only: [:index, :create]
+      resources :companies, only: [:show]
+      
     end
   end
 end

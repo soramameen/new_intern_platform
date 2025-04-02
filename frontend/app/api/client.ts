@@ -87,7 +87,16 @@ export const getInterns = () => {
 export const getCompanies = () => {
   return fetchApi("/users?type=companies");
 };
+//------------------------- 企業・インターン生詳細取得------------------
+// インターン生の詳細情報を取得
+export const getInternById = (id: string) => {
+  return fetchApi(`/interns/${id}`);
+};
 
+// 企業の詳細情報を取得
+export const getCompanyById = (id: string) => {
+  return fetchApi(`/companies/${id}`);
+};
 // ---------------- profile 更新・取得--------------------
 // インターン生プロフィール更新
 export const updateInternProfile = (profileData: any) => {
