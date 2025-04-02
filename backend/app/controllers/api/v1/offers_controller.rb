@@ -46,10 +46,15 @@ class Api::V1::OffersController < ApplicationController
   
   # オファー更新（ステータス変更: インターン生のみ）
   def update
-    unless current_user.intern? && @offer.intern_id == current_user.id
-      return render json: { error: '権限がありません' }, status: :forbidden
-    end
-    
+      unless current_user.intern? && @offer.intern_id == current_user.id
+        return render json: { 
+          error: '権限がありません',
+          user_type: current_user.type,
+          user_id: current_user.id,
+          offer_intern_id: @offer.intern_id
+        }, status: :forbidden
+      end
+  
     if @offer.update(offer_status_params)
       render json: @offer
     else

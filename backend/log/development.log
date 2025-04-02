@@ -2558,3 +2558,243 @@ Processing by Api::V1::OffersController#index as */*
 Completed 200 OK in 16ms (Views: 0.5ms | ActiveRecord: 0.5ms (3 queries, 0 cached) | GC: 0.0ms)
 
 
+Started OPTIONS "/api/v1/logged_in" for ::1 at 2025-04-02 11:58:02 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Backend'*/[0m
+Started GET "/api/v1/logged_in" for ::1 at 2025-04-02 11:58:02 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 83ms (Views: 0.4ms | ActiveRecord: 3.7ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started OPTIONS "/api/v1/users" for ::1 at 2025-04-02 11:58:02 +0900
+Started OPTIONS "/api/v1/users" for ::1 at 2025-04-02 11:58:02 +0900
+Started GET "/api/v1/users" for ::1 at 2025-04-02 11:58:02 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 23ms (Views: 1.3ms | ActiveRecord: 5.0ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-04-02 11:58:02 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 9ms (Views: 1.0ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-02 11:58:24 +0900
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'daisuke@example.com' LIMIT 1 /*action='create',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:5:in 'Api::V1::SessionsController#create'
+Completed 200 OK in 215ms (Views: 0.3ms | ActiveRecord: 1.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-04-02 11:58:41 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 11ms (Views: 1.0ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/offers" for ::1 at 2025-04-02 11:58:41 +0900
+Processing by Api::V1::OffersController#index as */*
+  Parameters: {"offer" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mOffer Load (0.2ms)[0m  [1m[34mSELECT "offers".* FROM "offers" WHERE "offers"."intern_id" = 12 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:13:in 'Api::V1::OffersController#index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:13:in 'Api::V1::OffersController#index'
+Completed 200 OK in 71ms (Views: 0.7ms | ActiveRecord: 1.7ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/offers" for ::1 at 2025-04-02 11:58:41 +0900
+Processing by Api::V1::OffersController#index as */*
+  Parameters: {"offer" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mOffer Load (0.1ms)[0m  [1m[34mSELECT "offers".* FROM "offers" WHERE "offers"."intern_id" = 12 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:13:in 'Api::V1::OffersController#index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:13:in 'Api::V1::OffersController#index'
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 0.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started PATCH "/api/v1/offers/1" for ::1 at 2025-04-02 11:58:45 +0900
+Processing by Api::V1::OffersController#update as */*
+  Parameters: {"offer" => {"status" => "accepted"}, "id" => "1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1 /*action='update',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mOffer Load (1.1ms)[0m  [1m[34mSELECT "offers".* FROM "offers" WHERE "offers"."id" = 1 LIMIT 1 /*action='update',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:68:in 'Api::V1::OffersController#set_offer'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*action='update',application='Backend',controller='offers'*/[0m
+  ↳ app/models/offer.rb:28:in 'Offer#company_user_type'
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='update',application='Backend',controller='offers'*/[0m
+  ↳ app/models/offer.rb:28:in 'Offer#company_user_type'
+  [1m[36mCACHE User Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1[0m
+  ↳ app/models/offer.rb:34:in 'Offer#intern_user_type'
+  [1m[36mOffer Update (16.3ms)[0m  [1m[33mUPDATE "offers" SET "status" = 1, "updated_at" = '2025-04-02 02:58:45.877857' WHERE "offers"."id" = 1 /*action='update',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:58:in 'Api::V1::OffersController#update'
+  [1m[36mTRANSACTION (12.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*action='update',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:58:in 'Api::V1::OffersController#update'
+Completed 200 OK in 130ms (Views: 5.6ms | ActiveRecord: 34.6ms (5 queries, 1 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/offers" for ::1 at 2025-04-02 11:58:45 +0900
+Processing by Api::V1::OffersController#index as */*
+  Parameters: {"offer" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mOffer Load (0.1ms)[0m  [1m[34mSELECT "offers".* FROM "offers" WHERE "offers"."intern_id" = 12 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:13:in 'Api::V1::OffersController#index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:13:in 'Api::V1::OffersController#index'
+Completed 200 OK in 18ms (Views: 0.3ms | ActiveRecord: 0.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-04-02 11:59:01 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 15ms (Views: 0.4ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-04-02 11:59:20 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 12 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/api/v1/login" for ::1 at 2025-04-02 11:59:42 +0900
+Processing by Api::V1::SessionsController#create as */*
+  Parameters: {"email" => "[FILTERED]", "password" => "[FILTERED]", "session" => {"email" => "[FILTERED]", "password" => "[FILTERED]"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = 'okayama@example.com' LIMIT 1 /*action='create',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/api/v1/sessions_controller.rb:5:in 'Api::V1::SessionsController#create'
+Completed 200 OK in 205ms (Views: 0.4ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-04-02 11:59:42 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.5ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-04-02 11:59:42 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.3ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-04-02 11:59:49 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 8ms (Views: 3.5ms | ActiveRecord: 0.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-04-02 11:59:49 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 0.4ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/users" for ::1 at 2025-04-02 11:59:49 +0900
+Processing by Api::V1::UsersController#index as */*
+  Parameters: {"user" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."user_type" = 'intern' /*action='index',application='Backend',controller='users'*/[0m
+  ↳ app/controllers/api/v1/users_controller.rb:23:in 'Enumerable#map'
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.2ms (2 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-04-02 12:00:02 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/offers" for ::1 at 2025-04-02 12:00:02 +0900
+Processing by Api::V1::OffersController#index as */*
+  Parameters: {"offer" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mOffer Load (0.2ms)[0m  [1m[34mSELECT "offers".* FROM "offers" WHERE "offers"."company_id" = 6 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:10:in 'Api::V1::OffersController#index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 12 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:10:in 'Api::V1::OffersController#index'
+Completed 200 OK in 13ms (Views: 0.1ms | ActiveRecord: 0.4ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/offers" for ::1 at 2025-04-02 12:00:02 +0900
+Processing by Api::V1::OffersController#index as */*
+  Parameters: {"offer" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mOffer Load (0.9ms)[0m  [1m[34mSELECT "offers".* FROM "offers" WHERE "offers"."company_id" = 6 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:10:in 'Api::V1::OffersController#index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 12 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:10:in 'Api::V1::OffersController#index'
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 1.2ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/logged_in" for ::1 at 2025-04-02 12:00:30 +0900
+Processing by Api::V1::SessionsController#status as */*
+  Parameters: {"session" => {}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='status',application='Backend',controller='sessions'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/offers" for ::1 at 2025-04-02 12:00:30 +0900
+Processing by Api::V1::OffersController#index as */*
+  Parameters: {"offer" => {}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mOffer Load (0.2ms)[0m  [1m[34mSELECT "offers".* FROM "offers" WHERE "offers"."company_id" = 6 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:10:in 'Api::V1::OffersController#index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 12 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:10:in 'Api::V1::OffersController#index'
+Completed 200 OK in 22ms (Views: 0.2ms | ActiveRecord: 0.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/api/v1/offers" for ::1 at 2025-04-02 12:00:30 +0900
+Processing by Api::V1::OffersController#index as */*
+  Parameters: {"offer" => {}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 6 LIMIT 1 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/application_controller.rb:9:in 'ApplicationController#current_user'
+  [1m[36mOffer Load (0.1ms)[0m  [1m[34mSELECT "offers".* FROM "offers" WHERE "offers"."company_id" = 6 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:10:in 'Api::V1::OffersController#index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = 12 /*action='index',application='Backend',controller='offers'*/[0m
+  ↳ app/controllers/api/v1/offers_controller.rb:10:in 'Api::V1::OffersController#index'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 0.6ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
