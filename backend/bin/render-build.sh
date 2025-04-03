@@ -6,4 +6,8 @@ bundle install
 # APIモードではアセットコンパイルは不要なので削除
 # bundle exec rake assets:precompile
 # bundle exec rake assets:clean
-bundle exec rails db:migrate
+# seeds用コメントアウト
+#bundle exec rails db:migrate
+
+DISABLE_DATABASE_ENVIRONMENT_CHECK=1 bundle exec rake db:migrate:reset
+bundle exec rake db:seed 
