@@ -1,5 +1,7 @@
 // app/auth/utils.ts
 
+import { BaseUser } from "../types";
+
 // トークンをローカルストレージに保存
 export const setToken = (token: string): void => {
   if (typeof window !== "undefined") {
@@ -23,14 +25,14 @@ export const removeToken = (): void => {
 };
 
 // ユーザー情報をローカルストレージに保存
-export const setUser = (user: any): void => {
+export const setUser = (user: BaseUser): void => {
   if (typeof window !== "undefined") {
     localStorage.setItem("user", JSON.stringify(user));
   }
 };
 
 // ユーザー情報をローカルストレージから取得
-export const getUser = (): any | null => {
+export const getUser = (): BaseUser | null => {
   if (typeof window !== "undefined") {
     const user = localStorage.getItem("user");
     return user ? JSON.parse(user) : null;

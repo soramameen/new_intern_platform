@@ -18,21 +18,13 @@ import {
   getUser,
 } from "@/app/auth/utils";
 import { useRouter } from "next/navigation";
-
-// ユーザー型定義
-type User = {
-  id: number;
-  email: string;
-  name: string;
-  user_type: "intern" | "company";
-  [key: string]: any; // その他のプロパティ
-};
+import { BaseUser } from "../types";
 
 // 認証コンテキストの型定義
 type AuthContextType = {
-  user: User | null;
+  user: BaseUser | null;
   loading: boolean;
-  login: (token: string, userData: User) => void;
+  login: (token: string, userData: BaseUser) => void;
   logout: () => void;
   isAuthenticated: boolean;
   isCompany: boolean;
@@ -44,7 +36,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 // 認証プロバイダーコンポーネント
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUserState] = useState<User | null>(null);
+  const [user, setUserState] = useState<BaseUser | null>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
@@ -54,6 +46,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       // トークンがある場合、認証状態を確認
       if (getToken()) {
         try {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           const data = await checkLoginStatus();
           if (data.logged_in) {
             setUserState(data.user);
@@ -79,7 +72,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   // ログイン処理
-  const handleLogin = (token: string, userData: User) => {
+  const handleLogin = (token: string, userData: BaseUser) => {
     setToken(token);
     setUser(userData);
     setUserState(userData);

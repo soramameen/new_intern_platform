@@ -2,11 +2,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import ProfileForm from "@/app/components/ProfileForm";
 import ProtectedRoute from "@/app/components/ProtectedRoute";
-import { useAuth } from "@/app/auth/AuthProvider";
 import { getProfile, updateInternProfile } from "@/app/api/client";
+import { InternProfile } from "@/app/types";
 
 export default function EditInternProfilePage() {
   return (
@@ -17,9 +16,7 @@ export default function EditInternProfilePage() {
 }
 
 function EditInternProfileContent() {
-  const router = useRouter();
-  const { user } = useAuth();
-  const [profile, setProfile] = useState<any>(null);
+  const [profile, setProfile] = useState<InternProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -28,7 +25,7 @@ function EditInternProfileContent() {
       try {
         const data = await getProfile();
         setProfile(data);
-      } catch (err) {
+      } catch (err: unknown) {
         console.error("Failed to fetch profile:", err);
         setError("プロフィール情報の取得に失敗しました。");
       } finally {
@@ -39,7 +36,7 @@ function EditInternProfileContent() {
     fetchProfile();
   }, []);
 
-  const handleSubmit = async (data: any) => {
+  const handleSubmit = async (data: InternProfile) => {
     return updateInternProfile(data);
   };
 

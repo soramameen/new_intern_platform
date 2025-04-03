@@ -2,39 +2,24 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/app/auth/AuthProvider";
 import MainLayout from "@/app/components/MainLayout";
 import ProtectedRoute from "@/app/components/ProtectedRoute";
 import OfferForm from "@/app/components/OfferForm";
-import Link from "next/link";
-
+import { InternUser } from "@/app/types";
 import { getInternById } from "@/app/api/client";
 
-interface Intern {
-  id: number;
-  name: string;
-  email: string;
-  profile: {
-    bio: string;
-    school: string;
-    major: string;
-    expected_graduation: string;
-    location: string;
-    github_url: string;
-    portfolio_url: string;
-  };
-  skills: string[];
-}
-
-export default function InternDetailPage({
+export default async function InternDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  // paramsをawaitで解決
+  const { id } = await params;
+
   return (
     <ProtectedRoute allowedUserTypes={["company"]}>
       <MainLayout>
-        <InternDetailContent internId={params.id} />
+        <InternDetailContent internId={id} />
       </MainLayout>
     </ProtectedRoute>
   );
@@ -42,8 +27,7 @@ export default function InternDetailPage({
 
 function InternDetailContent({ internId }: { internId: string }) {
   const router = useRouter();
-  const { user } = useAuth();
-  const [intern, setIntern] = useState<Intern | null>(null);
+  const [intern, setIntern] = useState<InternUser | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [showOfferModal, setShowOfferModal] = useState(false);
@@ -155,13 +139,13 @@ function InternDetailContent({ internId }: { internId: string }) {
             <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt className="text-sm font-medium text-gray-500">学校名</dt>
               <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                {intern.profile.school || "未設定"}
+                {intern.profile?.school || "未設定"}
               </dd>
             </div>
             <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt className="text-sm font-medium text-gray-500">専攻</dt>
               <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                {intern.profile.major || "未設定"}
+                {intern.profile?.major || "未設定"}
               </dd>
             </div>
             <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
@@ -169,31 +153,33 @@ function InternDetailContent({ internId }: { internId: string }) {
                 卒業予定年月
               </dt>
               <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                {intern.profile.expected_graduation || "未設定"}
+                {intern.profile?.expected_graduation || "未設定"}
               </dd>
             </div>
             <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt className="text-sm font-medium text-gray-500">希望勤務地</dt>
               <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                {intern.profile.location || "未設定"}
+                {intern.profile?.location || "未設定"}
               </dd>
             </div>
             <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt className="text-sm font-medium text-gray-500">スキル</dt>
               <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                 <div className="flex flex-wrap gap-2">
-                  {intern.skills.map((skill, idx) => (
-                    <span
-                      key={idx}
-                      className="inline-block px-2 py-1 rounded-full bg-indigo-100 text-indigo-800 text-xs font-medium"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                  {intern.skills
+                    .split(",")
+                    .map((skill: string, idx: number) => (
+                      <span
+                        key={idx}
+                        className="inline-block px-2 py-1 rounded-full bg-indigo-100 text-indigo-800 text-xs font-medium"
+                      >
+                        {skill.trim()}
+                      </span>
+                    ))}
                 </div>
               </dd>
             </div>
-            {intern.profile.github_url && (
+            {intern.profile?.github_url && (
               <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt className="text-sm font-medium text-gray-500">GitHub</dt>
                 <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
@@ -208,7 +194,7 @@ function InternDetailContent({ internId }: { internId: string }) {
                 </dd>
               </div>
             )}
-            {intern.profile.portfolio_url && (
+            {intern.profile?.portfolio_url && (
               <div className="bg-gray-50 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                 <dt className="text-sm font-medium text-gray-500">
                   ポートフォリオ
@@ -228,7 +214,7 @@ function InternDetailContent({ internId }: { internId: string }) {
             <div className="bg-white px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
               <dt className="text-sm font-medium text-gray-500">自己紹介</dt>
               <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2 whitespace-pre-line">
-                {intern.profile.bio || "未設定"}
+                {intern.profile?.bio || "未設定"}
               </dd>
             </div>
           </dl>
