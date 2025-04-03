@@ -39,3 +39,9 @@ production:
     <<: *default
     database: storage/production_cable.sqlite3
     migrations_paths: db/cable_migrate
+# config/database.yml
+production:
+  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
