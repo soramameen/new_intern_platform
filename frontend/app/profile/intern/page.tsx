@@ -2,11 +2,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import ProtectedRoute from "@/app/components/ProtectedRoute";
-import { useAuth } from "@/app/auth/AuthProvider";
 import { getProfile } from "@/app/api/client";
+import { InternProfile } from "@/app/types";
 
 export default function InternProfilePage() {
   return (
@@ -17,9 +16,7 @@ export default function InternProfilePage() {
 }
 
 function InternProfileContent() {
-  const router = useRouter();
-  const { user } = useAuth();
-  const [profile, setProfile] = useState<any>(null);
+  const [profile, setProfile] = useState<InternProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 

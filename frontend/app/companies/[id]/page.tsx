@@ -2,10 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { useAuth } from "@/app/auth/AuthProvider";
 import MainLayout from "@/app/components/MainLayout";
 import ProtectedRoute from "@/app/components/ProtectedRoute";
-import Link from "next/link";
 import { getCompanyById } from "@/app/api/client";
 
 interface Company {
@@ -20,15 +18,19 @@ interface Company {
   website?: string;
 }
 
-export default function CompanyDetailPage({
+// paramsをPromiseとして定義
+export default async function CompanyDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  // paramsをawaitで解決
+  const { id } = await params;
+
   return (
     <ProtectedRoute allowedUserTypes={["intern"]}>
       <MainLayout>
-        <CompanyDetailContent companyId={params.id} />
+        <CompanyDetailContent companyId={id} />
       </MainLayout>
     </ProtectedRoute>
   );
@@ -36,7 +38,6 @@ export default function CompanyDetailPage({
 
 function CompanyDetailContent({ companyId }: { companyId: string }) {
   const router = useRouter();
-  const { user } = useAuth();
   const [company, setCompany] = useState<Company | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");

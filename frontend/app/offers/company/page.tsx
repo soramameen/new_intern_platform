@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react";
 import { getOffers } from "@/app/api/client";
 import ProtectedRoute from "@/app/components/ProtectedRoute";
+import { Offer } from "@/app/types";
 
 export default function CompanyOffers() {
   return (
@@ -11,24 +12,6 @@ export default function CompanyOffers() {
       <CompanyOffersContent />
     </ProtectedRoute>
   );
-}
-
-interface Offer {
-  id: string;
-  intern: {
-    name: string;
-    email: string;
-  };
-  position: string;
-  message: string;
-  status: "pending" | "accepted" | "declined";
-  created_at: string;
-}
-
-enum OfferStatus {
-  PENDING = "pending",
-  ACCEPTED = "accepted",
-  DECLINED = "declined",
 }
 
 function CompanyOffersContent() {
@@ -142,10 +125,10 @@ function CompanyOffersContent() {
                 <tr key={offer.id}>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="text-sm font-medium text-gray-900">
-                      {offer.intern.name}
+                      {offer.intern?.name}
                     </div>
                     <div className="text-sm text-gray-500">
-                      {offer.intern.email}
+                      {offer.intern?.email}
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">

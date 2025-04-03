@@ -27,13 +27,9 @@ export default function Login() {
       // ログイン成功時の処理
       authLogin(data.token, data);
       router.push("/dashboard");
-    } catch (error: any) {
-      // エラー処理
-      if (error.status === 401) {
-        setError("メールアドレスまたはパスワードが正しくありません。");
-      } else {
-        setError("ログイン中にエラーが発生しました。もう一度お試しください。");
-      }
+    } catch (error: unknown) {
+      console.error("Login error:", error);
+      setError("メールアドレスまたはパスワードが正しくありません。");
     } finally {
       setIsLoading(false);
     }

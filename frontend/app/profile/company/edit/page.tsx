@@ -1,11 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import ProfileForm from "@/app/components/ProfileForm";
 import ProtectedRoute from "@/app/components/ProtectedRoute";
-import { useAuth } from "@/app/auth/AuthProvider";
 import { getProfile, updateCompanyProfile } from "@/app/api/client";
+import { CompanyProfile } from "@/app/types";
 
 export default function EditCompanyProfilePage() {
   return (
@@ -16,9 +15,7 @@ export default function EditCompanyProfilePage() {
 }
 
 function EditCompanyProfileContent() {
-  const router = useRouter();
-  const { user } = useAuth();
-  const [profile, setProfile] = useState<any>(null);
+  const [profile, setProfile] = useState<CompanyProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -38,7 +35,7 @@ function EditCompanyProfileContent() {
     fetchProfile();
   }, []);
 
-  const handleSubmit = async (data: any) => {
+  const handleSubmit = async (data: CompanyProfile) => {
     try {
       await updateCompanyProfile(data);
       // Next.jsのルーターではなく直接ブラウザのAPIを使用

@@ -6,12 +6,13 @@ import { useRouter } from "next/navigation";
 import { registerUser } from "@/app/api/client";
 import { useAuth } from "@/app/auth/AuthProvider";
 import Link from "next/link";
-
+import { FormData } from "@/app/types";
 export default function Register() {
   const router = useRouter();
   const { login } = useAuth();
   const [userType, setUserType] = useState<"intern" | "company">("intern");
-  const [formData, setFormData] = useState({
+
+  const [formData, setFormData] = useState<FormData>({
     email: "",
     password: "",
     password_confirmation: "",
@@ -69,13 +70,9 @@ export default function Register() {
       // 登録成功時の処理
       login(response.token, response);
       router.push("/dashboard");
-    } catch (error: any) {
-      // エラー処理
-      if (error.data && error.data.errors) {
-        setErrors(error.data.errors);
-      } else {
-        setErrors(["登録中にエラーが発生しました。もう一度お試しください。"]);
-      }
+    } catch (error: unknown) {
+      console.error("Registration error:", error);
+      setErrors(["登録中にエラーが発生しました。もう一度お試しください。"]);
     } finally {
       setIsLoading(false);
     }

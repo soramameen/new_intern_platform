@@ -39,10 +39,9 @@ export default function OfferForm({
     try {
       await sendOffer(formData);
       onSuccess();
-    } catch (error: any) {
-      setError(
-        error.data?.errors?.join(", ") || "オファーの送信に失敗しました"
-      );
+    } catch (err: unknown) {
+      console.error("Failed to send offer:", err);
+      setError("オファーの送信に失敗しました");
     } finally {
       setIsSubmitting(false);
     }

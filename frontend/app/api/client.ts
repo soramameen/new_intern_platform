@@ -6,6 +6,12 @@
  */
 
 import { getToken } from "@/app/auth/utils";
+import {
+  CompanyProfile,
+  InternProfile,
+  OfferFormData,
+  UserRegistration,
+} from "../types";
 
 // API基本URL
 const API_BASE_URL = "http://localhost:3001/api/v1";
@@ -51,7 +57,7 @@ const fetchApi = async (endpoint: string, options: RequestInit = {}) => {
 };
 //-------------------- ユーザー登録・ログイン・ログアウト ------------------------
 // ユーザー登録
-export const registerUser = (userData: any) => {
+export const registerUser = (userData: UserRegistration) => {
   return fetchApi("/users", {
     method: "POST",
     body: JSON.stringify({ user: userData }),
@@ -99,7 +105,7 @@ export const getCompanyById = (id: string) => {
 };
 // ---------------- profile 更新・取得--------------------
 // インターン生プロフィール更新
-export const updateInternProfile = (profileData: any) => {
+export const updateInternProfile = (profileData: InternProfile) => {
   return fetchApi("/intern_profile", {
     method: "PATCH",
     body: JSON.stringify({ intern_profile: profileData }),
@@ -107,7 +113,7 @@ export const updateInternProfile = (profileData: any) => {
 };
 
 // 企業プロフィール更新
-export const updateCompanyProfile = (profileData: any) => {
+export const updateCompanyProfile = (profileData: CompanyProfile) => {
   return fetchApi("/company_profile", {
     method: "PATCH",
     body: JSON.stringify({ company_profile: profileData }),
@@ -121,7 +127,7 @@ export const getProfile = () => {
 //-------------------- オファー関数 ------------------------
 
 // オファー送信（企業側）
-export const sendOffer = (offerData: any) => {
+export const sendOffer = (offerData: OfferFormData) => {
   return fetchApi("/offers", {
     method: "POST",
     body: JSON.stringify({ offer: offerData }),

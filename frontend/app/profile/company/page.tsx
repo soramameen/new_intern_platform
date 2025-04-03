@@ -2,11 +2,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import ProtectedRoute from "@/app/components/ProtectedRoute";
-import { useAuth } from "@/app/auth/AuthProvider";
+
 import { getProfile } from "@/app/api/client";
+import { CompanyProfile } from "@/app/types";
 
 export default function CompanyProfilePage() {
   return (
@@ -17,9 +17,7 @@ export default function CompanyProfilePage() {
 }
 
 function CompanyProfileContent() {
-  const router = useRouter();
-  const { user } = useAuth();
-  const [profile, setProfile] = useState<any>(null);
+  const [profile, setProfile] = useState<CompanyProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 

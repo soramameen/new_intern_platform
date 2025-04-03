@@ -7,27 +7,7 @@ import ProtectedRoute from "@/app/components/ProtectedRoute";
 import { getInterns, getCompanies } from "@/app/api/client";
 import Link from "next/link";
 import OfferForm from "../components/OfferForm";
-
-// インターン生の型定義
-type Intern = {
-  id: number;
-  name: string;
-  email: string;
-  skills: string;
-  bio: string;
-};
-
-// 企業の型定義
-type Company = {
-  id: number;
-  name: string;
-  email: string;
-  company_name: string;
-  industry: string;
-  location: string;
-  company_size: string;
-  description: string;
-};
+import { CompanyUser, InternUser } from "../types";
 
 export default function Dashboard() {
   return (
@@ -39,9 +19,9 @@ export default function Dashboard() {
 
 function DashboardContent() {
   const { user, isCompany } = useAuth();
-  const [interns, setInterns] = useState<Intern[]>([]);
-  const [companies, setCompanies] = useState<Company[]>([]);
-  const [filteredInterns, setFilteredInterns] = useState<Intern[]>([]);
+  const [interns, setInterns] = useState<InternUser[]>([]);
+  const [companies, setCompanies] = useState<CompanyUser[]>([]);
+  const [filteredInterns, setFilteredInterns] = useState<InternUser[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [skillFilter, setSkillFilter] = useState("");
@@ -49,7 +29,7 @@ function DashboardContent() {
 
   // モーダル追加用
   const [showOfferModal, setShowOfferModal] = useState(false);
-  const [selectedIntern, setSelectedIntern] = useState<Intern | null>(null);
+  const [selectedIntern, setSelectedIntern] = useState<InternUser | null>(null);
   const [offerSuccess, setOfferSuccess] = useState(false);
 
   // データ取得
@@ -61,14 +41,14 @@ function DashboardContent() {
           // 企業ユーザーの場合、インターン生一覧を取得
           const data = await getInterns();
           const internUsers = data.filter(
-            (user: any) => user.user_type === "intern"
+            (user: InternUser) => user.user_type === "intern"
           );
           setInterns(internUsers);
           setFilteredInterns(internUsers);
 
           // 利用可能なスキルの抽出
           const skills = new Set<string>();
-          internUsers.forEach((intern: Intern) => {
+          internUsers.forEach((intern: InternUser) => {
             if (intern.skills) {
               intern.skills.split(",").forEach((skill) => {
                 skills.add(skill.trim());
@@ -78,7 +58,7 @@ function DashboardContent() {
           setAvailableSkills(Array.from(skills).sort());
         } else {
           // インターン生ユーザーの場合、企業一覧を取得
-          const data = await getCompanies();
+          const data: CompanyUser[] = await getCompanies();
           setCompanies(data);
         }
       } catch (err) {
@@ -125,7 +105,7 @@ function DashboardContent() {
   };
 
   // モーダルの表示関数
-  const openOfferModal = (intern: Intern) => {
+  const openOfferModal = (intern: InternUser) => {
     setSelectedIntern(intern);
     setShowOfferModal(true);
     setOfferSuccess(false);
@@ -282,26 +262,28 @@ function DashboardContent() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <h4 className="text-sm font-medium text-gray-700">名前:</h4>
-                  <p className="text-gray-900">{user?.name}</p>
+                  <p className="text-gray-900">{(user as InternUser)?.name}</p>
                 </div>
 
                 <div>
                   <h4 className="text-sm font-medium text-gray-700">
                     メールアドレス:
                   </h4>
-                  <p className="text-gray-900">{user?.email}</p>
+                  <p className="text-gray-900">{(user as InternUser)?.email}</p>
                 </div>
 
                 <div>
                   <h4 className="text-sm font-medium text-gray-700">スキル:</h4>
-                  <p className="text-gray-900">{user?.skills}</p>
+                  <p className="text-gray-900">
+                    {(user as InternUser)?.skills}
+                  </p>
                 </div>
 
                 <div>
                   <h4 className="text-sm font-medium text-gray-700">
                     自己紹介:
                   </h4>
-                  <p className="text-gray-900">{user?.bio}</p>
+                  <p className="text-gray-900">{(user as InternUser)?.bio}</p>
                 </div>
               </div>
 

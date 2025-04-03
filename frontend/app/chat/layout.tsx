@@ -2,14 +2,13 @@
 "use client";
 
 import { useAuth } from "@/app/auth/AuthProvider";
-import MainLayout from "@/app/components/MainLayout";
 
 export default function ChatLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { isAuthenticated, loading } = useAuth();
+  const { loading } = useAuth();
 
   // ロード中の表示
   if (loading) {

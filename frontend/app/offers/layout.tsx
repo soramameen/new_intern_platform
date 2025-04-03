@@ -9,7 +9,7 @@ export default function OffersLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const { isAuthenticated, loading } = useAuth();
+  const { loading } = useAuth();
 
   // ロード中の表示
   if (loading) {
