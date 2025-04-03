@@ -14,7 +14,10 @@ import {
 } from "../types";
 
 // API基本URL
-const API_BASE_URL = "http://localhost:3001/api/v1";
+const API_BASE_URL =
+  process.env.NODE_ENV === "production"
+    ? "https://intern-platform-backend.onrender.com/api/v1"
+    : "http://localhost:3001/api/v1";
 
 // 共通のフェッチ関数
 const fetchApi = async (endpoint: string, options: RequestInit = {}) => {
