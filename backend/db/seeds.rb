@@ -3,13 +3,16 @@
 
 # データベースをクリーンアップ
 puts "データベースをクリーンアップしています..."
+Message.destroy_all
 Offer.destroy_all
 User.destroy_all
 # プロフィールはユーザー削除時に関連削除されるため明示的に削除する必要はありません
 
 # ランダムなデータ生成のためのヘルパーメソッド
-def random_date_future(from = Date.today, to = 2.years.from_now.to_date)
-  rand(from..to)
+def generate_unique_email(prefix)
+  timestamp = Time.now.to_i
+  random_part = SecureRandom.hex(3)
+  "#{prefix}_#{timestamp}_#{random_part}@example.com"
 end
 
 # 異なるスキルセットを用意
@@ -77,7 +80,7 @@ positions = [
 puts "=== インターン生データを生成しています ==="
 # メインのインターン生ユーザーを作成
 main_intern = User.create!(
-  email: 'intern@example.com',
+  email: generate_unique_email('main_intern'),
   password: 'password',
   user_type: 'intern',
   name: '山田太郎',
@@ -100,19 +103,14 @@ main_intern.intern_profile.update!(
 
 puts "メインインターン生を作成しました: #{main_intern.name}"
 
-# その他のインターン生を作成（一意のメールアドレスを使用）
+# その他のインターン生を作成
 29.times do |i|
   graduation_year = rand(2026..2028)
   graduation_month = rand(1..12)
   graduation_date = "#{graduation_year}年#{graduation_month}月"
   
-  # 一意の接頭辞を持つメールアドレスを生成
-  unique_prefix = "intern_#{i+1}"
-  random_part = ('a'..'z').to_a.shuffle[0,5].join
-  email = "#{unique_prefix}_#{random_part}@example.com"
-  
   user = User.create!(
-    email: email,
+    email: generate_unique_email("intern_#{i+1}"),
     password: 'password',
     user_type: 'intern',
     name: "インターン生#{i+1}",
@@ -139,7 +137,7 @@ end
 puts "=== 企業データを生成しています ==="
 # メインの企業ユーザーを作成
 main_company = User.create!(
-  email: 'company@example.com',
+  email: generate_unique_email('main_company'),
   password: 'password',
   user_type: 'company',
   name: '採用担当',
@@ -159,19 +157,14 @@ main_company.company_profile.update!(
 
 puts "メイン企業を作成しました: #{main_company.company_name}"
 
-# その他の企業を作成（一意のメールアドレスを使用）
+# その他の企業を作成
 19.times do |i|
-  # 一意の接頭辞を持つメールアドレスを生成
-  unique_prefix = "company_#{i+1}"
-  random_part = ('a'..'z').to_a.shuffle[0,5].join
-  email = "#{unique_prefix}_#{random_part}@example.com"
-  
   # 企業説明文にはランダムにスキルを入れておく（レコメンデーション機能のマッチング用）
   skills_for_description = skills_sets.sample.split(', ')
   used_skills = skills_for_description.select { |_| rand < 0.7 }.join('や')
   
   user = User.create!(
-    email: email,
+    email: generate_unique_email("company_#{i+1}"),
     password: 'password',
     user_type: 'company',
     name: "採用担当#{i+1}",
@@ -235,6 +228,3 @@ company_ids.each do |company_id|
 end
 
 puts "=== シードデータの作成が完了しました ==="
-puts "サンプルログイン情報:"
-puts "インターン生: email: intern@example.com, password: password"
-puts "企業: email: company@example.com, password: password"
